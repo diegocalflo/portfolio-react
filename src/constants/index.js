@@ -2,45 +2,55 @@ import {
   frontend,
   backend,
   ux,
-  prototyping,
+  assurance,
   javascript,
-  typescript,
+  java,
   html,
+  kafka,
+  springboot,
+  springbatch,
+  quasar,
+  vue,
+  jsf,
+  bitbucket,
+  aws,
+  apollo,
+  mysql,
+  sqlserver,
+  informix,
+  oracle,
   css,
   reactjs,
-  redux,
-  tailwind,
   nodejs,
   git,
-  figma,
-  docker,
   postgresql,
-  rubyrails,
   graphql,
   komikult,
   leaderboard,
   math,
   movie,
   nyeusi,
-  space,
-  coverhunt,
-  dcc,
-  kelhel,
-  microverse,
+  leader,
+  developer,
+  qa
 } from '../assets';
 
 export const navLinks = [
   {
     id: 'about',
-    title: 'About',
+    title: 'Acerca de',
   },
   {
-    id: 'projects',
-    title: 'Projects',
+    id: 'skills',
+    title: 'Expertise',
+  },
+  {
+    id: 'experience',
+    title: 'Experiencia laboral',
   },
   {
     id: 'contact',
-    title: 'Contact',
+    title: 'Contacto',
   },
 ];
 
@@ -48,18 +58,22 @@ const services = [
   {
     title: 'Frontend Developer',
     icon: frontend,
+    field:'frontend'
   },
   {
     title: 'Backend Developer',
     icon: backend,
+    field:'backend'
   },
   {
     title: 'UI/UX Design',
     icon: ux,
+    field:'ux'
   },
   {
-    title: 'Software Prototyping',
-    icon: prototyping,
+    title: 'QA',
+    icon: assurance,
+    field:'qa'
   },
 ];
 
@@ -77,79 +91,105 @@ const technologies = [
     icon: javascript,
   },
   {
-    name: 'TypeScript',
-    icon: typescript,
+    name: 'Java',
+    icon: java,
   },
   {
     name: 'React JS',
     icon: reactjs,
   },
   {
-    name: 'Redux Toolkit',
-    icon: redux,
-  },
-  {
-    name: 'Tailwind CSS',
-    icon: tailwind,
-  },
-  {
     name: 'Node JS',
     icon: nodejs,
   },
   {
-    name: 'Rails',
-    icon: rubyrails,
-  },
-  {
-    name: 'graphql',
+    name: 'GraphQL',
     icon: graphql,
   },
   {
-    name: 'postgresql',
+    name: 'PostgreSQL',
     icon: postgresql,
   },
   {
-    name: 'git',
+    name: 'Git',
     icon: git,
   },
   {
-    name: 'figma',
-    icon: figma,
+    name: 'Spring Boot',
+    icon: springboot,
   },
   {
-    name: 'docker',
-    icon: docker,
+    name: 'Spring Batch',
+    icon: springbatch,
+  },
+  {
+    name: 'Quasar',
+    icon: quasar,
+  },
+  {
+    name: 'Vue',
+    icon: vue,
+  },
+  {
+    name: 'Kafka',
+    icon: kafka,
+  },
+  {
+    name: 'JSF (JavaServer Faces)',
+    icon: jsf,
+  },
+  {
+    name: 'Bitbucket',
+    icon: bitbucket,
+  },
+  {
+    name: 'AWS',
+    icon: aws,
+  },
+  {
+    name: 'Apollo Federation',
+    icon: apollo,
+  },
+  {
+    name: 'MySQL',
+    icon: mysql,
+  },
+  {
+    name: 'SQL Server',
+    icon: sqlserver,
+  },
+  {
+    name: 'Informix',
+    icon: informix,
+  },
+  {
+    name: 'Oracle',
+    icon: oracle,
   },
 ];
 
+
 const experiences = [
   {
-    title: 'Front-End Developer',
-    company_name: 'Cover Hunt',
-    icon: coverhunt,
+    title: 'QA Tester',
+    company_name: 'Exos TECHNOLOGY',
+    icon: qa,
     iconBg: '#333333',
-    date: 'Aug 2021 - Feb 2022',
+    date: 'May 2020 - Oct 2021',
   },
   {
-    title: 'Mentor (Volunteer)',
-    company_name: 'Microverse',
-    icon: microverse,
+    title: 'Junior Developer',
+    company_name: 'Exos TECHNOLOGY',
+    icon: developer,
     iconBg: '#333333',
-    date: 'Mar 2022 - May 2022',
+    date: 'Oct 2021 - Jan 2024',
   },
   {
-    title: 'Junior Software Engineer',
-    company_name: 'Kelhel',
-    icon: kelhel,
+    title: 'Tech Leader',
+    company_name: 'Exos TECHNOLOGY',
+    icon: leader,
     iconBg: '#333333',
-    date: 'May 2022 - Oct 2022',
-  },
-  {
-    title: 'Full Stack Developer',
-    company_name: 'Diversity Cyber Council',
-    icon: dcc,
-    iconBg: '#333333',
-    date: 'Sep 2022 - Present',
+    date: 'Jan 2024',
   },
 ];
 

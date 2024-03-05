@@ -11,7 +11,7 @@ import shaq from './personal/shaq.png';
 import backend from './icons/backend.png';
 import ux from './icons/ux.png';
 import frontend from './icons/frontend.png';
-import prototyping from './icons/prototyping.png';
+import assurance from './icons/assurance.png';
 import github from './icons/github.png';
 import close from './icons/close.png';
 import download from './icons/download.png';
@@ -24,24 +24,31 @@ import send from './icons/send.png';
 import sendHover from './icons/sendHover.png';
 
 import css from './tech/css.png';
-import docker from './tech/docker.png';
-import figma from './tech/figma.png';
 import git from './tech/git.png';
 import html from './tech/html.png';
 import javascript from './tech/javascript.png';
+import java from './tech/java.png';
 import nodejs from './tech/nodejs.png';
 import reactjs from './tech/reactjs.png';
-import redux from './tech/redux.png';
-import tailwind from './tech/tailwind.png';
-import typescript from './tech/typescript.png';
 import graphql from './tech/graphql.png';
 import postgresql from './tech/postgresql.png';
-import rubyrails from './tech/rubyrails.png';
+import kafka from './tech/kafka.png';
+import springboot from './tech/springboot.png';
+import springbatch from './tech/springbatch.png';
+import quasar from './tech/quasar.svg';
+import vue from './tech/vue.png';
+import jsf from './tech/jsf.png';
+import bitbucket from './tech/bitbucket.png';
+import aws from './tech/aws.png';
+import apollo from './tech/apollo.png';
+import mysql from './tech/mysql.png';
+import sqlserver from './tech/sqlserver.png';
+import informix from './tech/informix.svg';
+import oracle from './tech/oracle.png';
 
-import coverhunt from './company/coverhunt.png';
-import dcc from './company/dcc.png';
-import kelhel from './company/kelhel.png';
-import microverse from './company/microverse.png';
+import leader from './company/techlead.png'
+import developer from './company/developer.png'
+import qa from './company/qa.png'
 
 import komikult from './projects/komikult.png';
 import leaderboard from './projects/leaderboard.png';
@@ -51,6 +58,22 @@ import nyeusi from './projects/nyeusi.png';
 import space from './projects/space-hub.png';
 
 export {
+  developer,
+  qa,
+  leader,
+  springboot,
+  springbatch,
+  vue,
+  quasar,
+  apollo,
+  jsf,
+  bitbucket,
+  kafka,
+  aws,
+  mysql,
+  sqlserver,
+  informix,
+  oracle,
   bwmap,
   nairobi,
   whiteabstract,
@@ -61,7 +84,7 @@ export {
   backend,
   ux,
   frontend,
-  prototyping,
+  assurance,
   github,
   close,
   download,
@@ -73,27 +96,18 @@ export {
   send,
   sendHover,
   css,
-  docker,
-  figma,
   git,
   graphql,
   html,
   javascript,
+  java,
   nodejs,
   postgresql,
-  rubyrails,
   reactjs,
-  redux,
-  tailwind,
-  typescript,
   komikult,
   leaderboard,
   math,
   movie,
   nyeusi,
   space,
-  coverhunt,
-  dcc,
-  kelhel,
-  microverse,
 };
