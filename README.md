@@ -5,9 +5,6 @@
 - Framer Motion
 - TailwindCSS
 
-## Live Demo
-
-- Click [here](https://shaq-portfolio.netlify.app/) to view the live demo.
 
 ## Getting Started
 
