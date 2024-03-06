@@ -54,7 +54,7 @@ const About = () => {
       <motion.p
         style={{textAlign: 'justify'}}
         variants={fadeIn('', '', 0.1, 1)}
-        className="mt-4 text-taupe text-[18px] max-w-5x1 leading-[30px]"
+        className="mt-4 text-taupe text-[18px] max-w-5x1 leading-[30px] font-poppins"
       >
         {t('overviewText')}
       </motion.p>
