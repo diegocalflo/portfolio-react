@@ -10,9 +10,6 @@ const ServiceCard = ({ index, title, icon, field }) => {
   const { t, i18n } = useTranslation();
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const handleCardClick = () => {
-    setIsExpanded(!isExpanded);
-  };
 
   return (
     <motion.div
@@ -25,7 +22,6 @@ const ServiceCard = ({ index, title, icon, field }) => {
         scale: 1.2,
         transition: { duration: .2 },
       }}
-      onClick={handleCardClick}
       className={`xs:w-[250px] w-full card-gradient p-[1px] rounded-[20px] shadow-card ${isExpanded ? 'h-[400px]' : 'h-[280px]'}`}
     >
       <div
@@ -49,7 +45,7 @@ const About = () => {
   const { t, i18n } = useTranslation();
   
   return (
-    <div className="-mt-[6rem]">
+    <div className="-mt-[10rem]">
       <motion.div variants={textVariant()}>
         <p className={styles.sectionSubText}>{t('introduction')}</p>
         <h2 className={styles.sectionHeadText}>{t('overview')}</h2>

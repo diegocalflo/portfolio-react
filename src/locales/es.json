@@ -20,13 +20,16 @@
     "techs": "Tecnologías.",
     "soFar": "Lo que he hecho hasta ahora...",
     "workExperience": "Experiencia laboral.",
-    "touch": "Ponte en contacto",
+    "touch": "Envíame un correo",
     "contactTitle": "Contacto.",
+    "contactInfo": "Contáctame",
     "yourName": "Tu nombre",
     "yourEmail": "Tu email",
     "yourMsg": "Tu mensaje",
     "send": "Enviar",
     "sending": "Enviando",
     "sendingMsg": "Gracias. Me comunicaré contigo lo antes posible.",
-    "errorMsg":"Algo salió mal. Inténtalo de nuevo."
+    "errorMsg":"Algo salió mal. Inténtalo de nuevo.",
+    "mail": "Correo",
+    "phone": "Teléfono"
 }
