@@ -158,7 +158,7 @@ const Contact = () => {
       </motion.div>
       <motion.div
         variants={slideIn("right", "tween", 0.2, 1)}
-        className="flex-[0.25] bg-white p-8 rounded-2xl"
+        className="flex-[0.25] bg-white p-8 rounded-2xl font-poppins"
       >
         <h3 className="text-black text-xl font-bold mb-8">{t("contactInfo")}</h3>
         <ul className="text-black font-medium gap-2 mt-2">
