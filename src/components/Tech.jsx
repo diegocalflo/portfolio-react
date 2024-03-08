@@ -4,7 +4,7 @@ import { SectionWrapper } from '../hoc';
 import { useTranslation } from "react-i18next";
 import { technologies } from '../constants';
 import { styles } from '../styles';
-import { textVariant } from '../utils/motion';
+import { fadeIn, slideIn, textVariant } from '../utils/motion';
 
 const Tech = () => {
   const { t, i18n } = useTranslation();
@@ -16,11 +16,11 @@ const Tech = () => {
         <h2 className={styles.sectionHeadTextLight}>{t('techs')}</h2>
       </motion.div>
 
-      <div className="flex flex-wrap justify-center gap-10 mt-14">
+      <motion.div variants={fadeIn('', '', 0.1, 1)} className="flex flex-wrap justify-center gap-10 mt-14">
         {technologies.map((technology) => (
           <TechCard key={technology.name} technology={technology} />
         ))}
-      </div>
+      </motion.div>
     </>
   );
 };

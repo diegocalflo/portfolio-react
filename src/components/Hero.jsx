@@ -24,7 +24,7 @@ const Hero = () => {
             <div className="w-1 sm:h-80 h-40 bw-gradient sm:hidden" />
           </div>
 
-          <div>
+          <div >
             <h1
               className={`${styles.heroHeadText} text-eerieBlack font-poppins uppercase p-2 shadow-xl rounded-xl`}
             >
@@ -38,7 +38,7 @@ const Hero = () => {
                 {t("name")}
               </span>
             </h1>
-            <p className={`${styles.heroSubText} mt-2 font-poppins  text-eerieBlack bg-white bg-opacity-40 p-2 shadow-xl rounded-xl`}>
+            <p className={`${styles.heroSubText} mt-2 font-poppins text-eerieBlack bg-white bg-opacity-40 p-2 shadow-xl rounded-xl`}>
               {t("resume")}
             </p>
           </div>

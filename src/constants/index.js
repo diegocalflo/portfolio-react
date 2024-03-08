@@ -25,14 +25,15 @@ import {
   git,
   postgresql,
   graphql,
-  komikult,
-  leaderboard,
-  math,
-  movie,
-  nyeusi,
+  salescapture,
   leader,
   developer,
-  qa
+  kafkaproject,
+  qa,
+  mongo,
+  batch,
+  etl,
+  automated
 } from '../assets';
 
 export const navLinks = [
@@ -42,12 +43,17 @@ export const navLinks = [
   },
   {
     id: 'skills',
-    title: 'Expertise',
+    title: 'Skills',
+  },
+  {
+    id: 'proyects',
+    title: 'Proyectos',
   },
   {
     id: 'experience',
     title: 'Experiencia laboral',
   },
+
   {
     id: 'contact',
     title: 'Contacto',
@@ -166,6 +172,10 @@ const technologies = [
     name: 'Oracle',
     icon: oracle,
   },
+  {
+    name: 'Mongo DB',
+    icon: mongo,
+  },
 ];
 
 
@@ -196,115 +206,41 @@ const experiences = [
 const projects = [
   {
     id: 'project-1',
-    name: 'KomiKult',
+    name: 'Captura de ventas',
     description: 'A comic characters list app that displays Marvel characters.',
-    tags: [
-      {
-        name: 'react',
-        color: 'blue-text-gradient',
-      },
-      {
-        name: 'mongodb',
-        color: 'green-text-gradient',
-      },
-      {
-        name: 'tailwind',
-        color: 'pink-text-gradient',
-      },
-    ],
-    image: komikult,
-    repo: 'https://github.com/shaqdeff/KomiKult',
-    demo: 'https://shaqdeff.github.io/KomiKult/',
+    image: salescapture,
+    component: 'SalesCapture'
   },
   {
     id: 'project-2',
-    name: 'Leaderboard',
+    name: 'Kafka',
     description:
       'A leaderboard list app that displays scores submitted by different players.',
-    tags: [
-      {
-        name: 'react',
-        color: 'blue-text-gradient',
-      },
-      {
-        name: 'restapi',
-        color: 'green-text-gradient',
-      },
-      {
-        name: 'scss',
-        color: 'pink-text-gradient',
-      },
-    ],
-    image: leaderboard,
-    repo: 'https://github.com/shaqdeff/Leaderboard',
-    demo: 'https://shaqdeff.github.io/Leaderboard/',
+    image: kafkaproject,
+    component: 'KafkaProcess'
+  
   },
   {
     id: 'project-3',
-    name: 'Math Magicians',
+    name: 'Batch',
     description: 'This is a single-page calculator app built with React',
-    tags: [
-      {
-        name: 'nextjs',
-        color: 'blue-text-gradient',
-      },
-      {
-        name: 'supabase',
-        color: 'green-text-gradient',
-      },
-      {
-        name: 'css',
-        color: 'pink-text-gradient',
-      },
-    ],
-    image: math,
-    repo: 'https://github.com/shaqdeff/Math-Magicians',
-    demo: 'https://inspiring-medovik-37d3b3.netlify.app/',
+    image: batch,
+    component: 'SalesCapture'
   },
   {
     id: 'project-4',
-    name: 'Movie Metro',
+    name: 'Migración ETLs',
     description: `A single-page application that allows users to search for any movie or show's ratings and its details.`,
-    tags: [
-      {
-        name: 'nextjs',
-        color: 'blue-text-gradient',
-      },
-      {
-        name: 'supabase',
-        color: 'green-text-gradient',
-      },
-      {
-        name: 'css',
-        color: 'pink-text-gradient',
-      },
-    ],
-    image: movie,
-    repo: 'https://github.com/shaqdeff/Movie-Metro',
-    demo: 'https://movie-metro.netlify.app/',
+    image: etl,
+    component: 'SalesCapture'
   },
   {
     id: 'project-5',
-    name: 'Nyeusi Fest Site',
+    name: 'QA Test Automation',
     description:
       'This is a demo concert website for a music festival called Nyeusi.',
-    tags: [
-      {
-        name: 'nextjs',
-        color: 'blue-text-gradient',
-      },
-      {
-        name: 'supabase',
-        color: 'green-text-gradient',
-      },
-      {
-        name: 'css',
-        color: 'pink-text-gradient',
-      },
-    ],
-    image: nyeusi,
-    repo: 'https://github.com/shaqdeff/Nyeusi-Fest-Site',
-    demo: 'https://shaqdeff.github.io/Nyeusi-Fest-Site/',
+    image: automated,
+    component: 'SalesCapture'
   },
 ];
 
