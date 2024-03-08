@@ -48,7 +48,7 @@ const KafkaProcess = ({ handleClose, isOpen }) => {
               borderRadius: "20px",
               padding: "20px",
               boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.5)",
-              alignItems: "center"
+              alignItems: "center",
             }}
           >
             {/* Botón para cerrar el modal */}
@@ -85,18 +85,25 @@ const KafkaProcess = ({ handleClose, isOpen }) => {
               {/* Traducción de la descripción */}
             </motion.p>
             {/* Imagen con diseño y animaciones */}
-            <motion.div style={{width: "80%", alignItems: "center", marginLeft: "10%", marginTop: "5%"}} className="flex flex-wrap justify-center">
-            <motion.img
-              src={kafkaProcess}
-              title="Kafka Migration Process"
-              alt="Kafka Architecture"
-              className="max-w-50 h-auto rounded-3xl"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 1 }}
-            />
+            <motion.div
+              style={{
+                width: "80%",
+                alignItems: "center",
+                marginLeft: "10%",
+                marginTop: "5%",
+              }}
+              className="flex flex-wrap justify-center"
+            >
+              <motion.img
+                src={kafkaProcess}
+                title="Kafka Migration Process"
+                alt="Kafka Architecture"
+                className="max-w-50 h-auto rounded-3xl"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 1 }}
+              />
             </motion.div>
-           
 
             {/* Div vacío opcional */}
             <motion.div />
