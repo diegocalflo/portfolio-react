@@ -7,18 +7,34 @@ import { fadeIn, textVariant, staggerContainer } from "../utils/motion";
 import { useTranslation } from "react-i18next";
 import SalesCapture from "../components/modal/SalesCapture.jsx";
 import KafkaProcess from "../components/modal/KafkaProcess.jsx";
+import EtlMigration from "../components/modal/EtlMigration.jsx";
+import Automation from "../components/modal/Automation.jsx";
 
 const Modal = ({ handleClose, isOpen, component }) => {
   let componentRender;
 
-  console.log('component recieved: ',component)
+  console.log("component recieved: ", component);
 
   switch (component) {
     case "SalesCapture":
-      componentRender = <SalesCapture handleClose={handleClose} isOpen={isOpen} />;
+      componentRender = (
+        <SalesCapture handleClose={handleClose} isOpen={isOpen} />
+      );
       break;
     case "KafkaProcess":
-      componentRender = <KafkaProcess handleClose={handleClose} isOpen={isOpen} />;
+      componentRender = (
+        <KafkaProcess handleClose={handleClose} isOpen={isOpen} />
+      );
+      break;
+    case "EtlMigration":
+      componentRender = (
+        <EtlMigration handleClose={handleClose} isOpen={isOpen} />
+      );
+      break;
+    case "Automation":
+      componentRender = (
+        <Automation handleClose={handleClose} isOpen={isOpen} />
+      );
       break;
   }
 
@@ -46,7 +62,7 @@ const ProjectCard = ({ id, name, image, index, handleClick }) => {
       />
       <div className="flex items-center justify-start pr-[4.5rem]">
         <h3
-          className="font-extrabold font-poppins uppercase w-[200px] h-[30px] 
+          className="font-poppins uppercase mr-20px w-[200px] h-[30px] 
         whitespace-nowrap sm:text-[27px] text-[18px] text-timberWolf tracking-[1px]
         absolute lg:bottom-[7rem] lg:rotate-[-90deg] lg:origin-[0,0]
         leading-none z-20"
@@ -63,7 +79,6 @@ const Projects = () => {
   const [activeProject, setActiveProject] = useState(null);
   const [activeComponent, setActiveComponent] = useState(null);
   const { t, i18n } = useTranslation();
-
 
   const handleProjectClick = (projectId, component) => {
     setActiveComponent(component);
@@ -105,13 +120,19 @@ const Projects = () => {
               key={project.id}
               index={index}
               {...project}
-              handleClick={() => handleProjectClick(project.id, project.component)} 
+              handleClick={() =>
+                handleProjectClick(project.id, project.component)
+              }
             />
           ))}
         </div>
       </motion.div>
 
-      <Modal handleClose={handleModalClose} isOpen={isOpen} component={activeComponent}/>
+      <Modal
+        handleClose={handleModalClose}
+        isOpen={isOpen}
+        component={activeComponent}
+      />
     </div>
   );
 };

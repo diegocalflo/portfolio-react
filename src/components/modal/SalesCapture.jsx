@@ -23,7 +23,7 @@ const SalesCapture = ({ handleClose, isOpen }) => {
     <>
       {isOpen && (
         <motion.div
-          className="modal"
+          className="modal overflow-y-auto"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -87,7 +87,7 @@ const SalesCapture = ({ handleClose, isOpen }) => {
 
             <div className="mt-10 flex flex-col items-center justify-center">
               <motion.div
-                className="mt-10 gap-20 h-[4rem] bg-black-300 rounded-full flex items-center justify-between"
+                className="mt-10 gap-20 h-auto bg-black-300 rounded-full flex items-center justify-between"
                 initial={{ x: "-1%" }}
                 animate={{ x: "0%" }}
                 transition={{
@@ -102,7 +102,7 @@ const SalesCapture = ({ handleClose, isOpen }) => {
                   src={user}
                   title="Cliente"
                   alt="Imagen 1"
-                  className="w-full h-full"
+                  className="w-full h-auto  rounded-3xl"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.3 }}
@@ -111,7 +111,7 @@ const SalesCapture = ({ handleClose, isOpen }) => {
                 <motion.img
                   src={arrow}
                   alt="Flecha"
-                  className="w-full h-full"
+                  className="w-full h-auto  rounded-3xl"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.6 }}
@@ -120,7 +120,7 @@ const SalesCapture = ({ handleClose, isOpen }) => {
                 <motion.img
                   src={springboot}
                   alt="Imagen 2"
-                  className="w-full h-full"
+                  className="w-full h-auto" rounded-3xl
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.9 }}
@@ -129,7 +129,7 @@ const SalesCapture = ({ handleClose, isOpen }) => {
                 <motion.img
                   src={arrow}
                   alt="Flecha"
-                  className="w-full h-full"
+                  className="w-full h-auto" rounded-3xl
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 1.2 }}
@@ -138,7 +138,7 @@ const SalesCapture = ({ handleClose, isOpen }) => {
                 <motion.img
                   src={apollo}
                   alt="Imagen 3"
-                  className="w-full h-full"
+                  className="w-full h-auto" rounded-3xl
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 1.5 }}
@@ -147,7 +147,7 @@ const SalesCapture = ({ handleClose, isOpen }) => {
                 <motion.img
                   src={arrow}
                   alt="Flecha"
-                  className="w-full h-full"
+                  className="w-full h-auto" rounded-3xl
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 1.8 }}
@@ -156,55 +156,11 @@ const SalesCapture = ({ handleClose, isOpen }) => {
                 <motion.img
                   src={graphql}
                   alt="Imagen 4"
-                  className="w-full h-full"
+                  className="w-full h-auto" rounded-3xl
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 2.1 }}
                 />
-              </motion.div>
-              <motion.div
-                className=" gap-40 h-[4rem] bg-black-300 rounded-full flex items-center justify-between"
-                initial={{ x: "-1%" }}
-                animate={{ x: "0%" }}
-                transition={{
-                  delay: 0.2,
-                  type: "spring",
-                  stiffness: 100,
-                  damping: 50,
-                }}
-              >
-                <p
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.3 }}
-                  style={{ color: "white" }}
-                >
-                  Cliente
-                </p>
-                <p
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.9 }}
-                  style={{ color: "white" }}
-                >
-                  SpringBoot Microservice
-                </p>
-                <p
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 1.5 }}
-                  style={{ color: "white" }}
-                >
-                  Apollo federation
-                </p>
-                <p
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 2.1 }}
-                  style={{ color: "white" }}
-                >
-                  GraphQL Core
-                </p>
               </motion.div>
             </div>
           </motion.div>

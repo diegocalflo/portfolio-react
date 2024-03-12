@@ -46,7 +46,7 @@ export const navLinks = [
     title: 'Skills',
   },
   {
-    id: 'proyects',
+    id: 'projects',
     title: 'Proyectos',
   },
   {
@@ -222,25 +222,18 @@ const projects = [
   },
   {
     id: 'project-3',
-    name: 'Batch',
-    description: 'This is a single-page calculator app built with React',
-    image: batch,
-    component: 'SalesCapture'
-  },
-  {
-    id: 'project-4',
     name: 'Migración ETLs',
     description: `A single-page application that allows users to search for any movie or show's ratings and its details.`,
     image: etl,
-    component: 'SalesCapture'
+    component: 'EtlMigration'
   },
   {
-    id: 'project-5',
+    id: 'project-4',
     name: 'QA Test Automation',
     description:
       'This is a demo concert website for a music festival called Nyeusi.',
     image: automated,
-    component: 'SalesCapture'
+    component: 'Automation'
   },
 ];
 

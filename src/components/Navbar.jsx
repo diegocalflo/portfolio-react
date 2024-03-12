@@ -79,8 +79,8 @@ const Navbar = () => {
                 />
               </div>
               <ul
-                className="list-none flex flex-col -gap-[1rem] 
-                items-start justify-end mt-[10rem] -ml-[35px]"
+                className="list-none flex flex-col gap-[1rem] 
+                items-center justify-center mt-[10rem]"
               >
                 {navLinks.map((nav) => (
                   <li
@@ -88,12 +88,13 @@ const Navbar = () => {
                     key={nav.id}
                     className={`${
                       active === nav.title ? "text-french" : "text-eerieBlack"
-                    } text-[88px] font-bold font-arenq 
-                      uppercase tracking-[1px] cursor-pointer`}
+                    } text-[2rem] font-mono
+                    uppercase tracking-[10px] cursor-pointer`}
                     onClick={() => {
                       setToggle(!toggle);
                       setActive(nav.title);
                     }}
+                    style={{ all: "initial" }}
                   >
                     <a href={`#${nav.id}`}>{t(nav.id)}</a>
                   </li>
@@ -109,7 +110,7 @@ const Navbar = () => {
             />
           )}
         </div>
-        <motion.div className="ml-6 items-center">
+        <motion.div className="ml-2 items-center">
           {/* Botones de idioma con clases y estilos */}
           <label className="inline-flex items-center cursor-pointer">
             <input

@@ -19,7 +19,7 @@ const KafkaProcess = ({ handleClose, isOpen }) => {
       {isOpen && (
         // Contenedor principal del modal
         <motion.div
-          className="modal"
+          className="modal overflow-y-auto"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -101,7 +101,7 @@ const KafkaProcess = ({ handleClose, isOpen }) => {
                 className="max-w-50 h-auto rounded-3xl"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1 }}
+                transition={{ delay: 1, duration: 1.2 }}
               />
             </motion.div>
 

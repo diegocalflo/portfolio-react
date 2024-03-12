@@ -8,9 +8,13 @@ import "react-vertical-timeline-component/style.min.css";
 import { styles } from "../styles";
 import { experiences } from "../constants";
 import { SectionWrapper } from "../hoc";
-import { download, downloadHover, resume } from "../assets";
+import { download, downloadHover } from "../assets";
 import { useTranslation } from "react-i18next";
 import { textVariant } from "../utils/motion";
+import resume from "../assets/icons/resume.png";
+import { saveAs } from "file-saver";
+import curriculumPDF from "../assets/curriculum/CV_ING_DIEGO_.pdf";
+import curriculumPDFIng from "../assets/curriculum/CV_ESP_DIEGO.pdf";
 
 const ExperienceCard = ({ experience }) => (
   <VerticalTimelineElement
@@ -56,37 +60,28 @@ const ExperienceCard = ({ experience }) => (
 );
 
 const Experience = () => {
+  const { t, i18n } = useTranslation();
   const [resumeDownloaded, setResumeDownloaded] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
-  const [notificationMessage, setNotificationMessage] = useState('');
+  const [notificationMessage, setNotificationMessage] = useState("");
 
   const handleDownloadResume = () => {
-    if (!resumeDownloaded) {
-      console.log('downloading..')
-      const pdfUrl = '../assets/curriculum/CV_ING_Diego.pdf';
-      const link = document.createElement('a');
-      link.href = pdfUrl;
-      link.download = 'CV_ING_Diego.pdf';
-      link.target = '_blank';
-      link.click();
-  
-      setResumeDownloaded(true);
-      setShowNotification(true);
-      setNotificationMessage('Curriculum descargado correctamente.');
-      setTimeout(() => {
-        setShowNotification(false);
-      }, 6000);
+    console.log("downloading..");
+    if (i18n.language === "en") {
+      console.log("english CV");
+      saveAs(curriculumPDFIng, "Curriculum_DiegoCalderon.pdf");
     } else {
-      console.log('already do..')
-      setShowNotification(true);
-      setNotificationMessage('El currículum ya ha sido descargado.');
-      setTimeout(() => {
-        setShowNotification(false);
-      }, 6000);
+      console.log("spanish CV");
+      saveAs(curriculumPDF, "Curriculum_DiegoCalderon.pdf");
     }
-  };
 
-  const { t, i18n } = useTranslation();
+    setResumeDownloaded(true);
+    setShowNotification(true);
+    setNotificationMessage("Curriculum descargado correctamente.");
+    setTimeout(() => {
+      setShowNotification(false);
+    }, 6000);
+  };
 
   return (
     <>
@@ -110,13 +105,12 @@ const Experience = () => {
         {notificationMessage}
       </motion.div>
 
-
-      <div className="mt-20 flex flex-col">
+      <div className="mt-20 h-[80vh] flex flex-col">
         <VerticalTimeline className="vertical-timeline-custom-line">
           {experiences.map((experience, index) => (
             <ExperienceCard key={index} experience={experience} />
           ))}
-          {/* <VerticalTimelineElement
+          <VerticalTimelineElement
             contentStyle={{
               background: "#eaeaec",
               color: "#292929",
@@ -127,7 +121,7 @@ const Experience = () => {
               alignItems: "center",
             }}
             contentArrowStyle={{
-              borderRight: "7px solid  #232631",
+              borderRight: "7px solid  #FFFFFF",
             }}
             iconStyle={{ background: "#333333" }}
             icon={
@@ -140,8 +134,12 @@ const Experience = () => {
               </div>
             }
           >
+            <h3 className="text-jetLight text-[24px] font-bold font-beckman tracking-[2px]">
+              {t("downloadResume")}
+            </h3>
+
             <button
-              className="live-demo flex justify-between 
+              className="live-demo flex justify-center 
               sm:text-[18px] text-[14px] text-timberWolf 
               font-bold font-beckman items-center py-5 pl-3 pr-3 
               whitespace-nowrap gap-1 sm:w-[148px] sm:h-[58px] 
@@ -161,7 +159,6 @@ const Experience = () => {
                   .setAttribute("src", download);
               }}
             >
-              {t("myResume")}
               <img
                 src={download}
                 alt="download"
@@ -169,7 +166,7 @@ const Experience = () => {
                 w-[23px] h-[23px] object-contain"
               />
             </button>
-          </VerticalTimelineElement> */}
+          </VerticalTimelineElement>
         </VerticalTimeline>
       </div>
     </>
