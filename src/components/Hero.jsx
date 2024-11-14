@@ -17,17 +17,12 @@ const Hero = () => {
           className={`absolute inset-0 sm:top-[250px] top-[100px] 
           lg:top-[150px] xl:top-[250px] ${styles.paddingX} 
           max-w-6x1 mx-auto flex flex-row items-start
-          justify-between gap-3`}
+          justify-between gap-1`}
         >
-          <div className="flex flex-col justify-center items-center mt-5 ml-3">
-            <div className="w-5 h-5 rounded-full bg-[#0a0a0a] sm:hidden" />
-            <div className="w-1 sm:h-80 h-40 bw-gradient sm:hidden" />
-          </div>
-
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.9 }}
           >
             <h1
               className={`${styles.heroHeadText} uppercase p-2 rounded-xl`}

@@ -22,11 +22,14 @@ const Navbar = () => {
   const switchVariants = {
     checked: {
       backgroundColor: "#333",
-      x: "22px"
+      scale: 1
     },
     unchecked: {
       backgroundColor: "#ccc",
-      x: "0px" 
+      scale: 1
+    },
+    click: {
+      scale: 0.2 
     }
   };
 
@@ -123,6 +126,7 @@ const Navbar = () => {
             <motion.div
               className={`relative border-black w-11 h-6 bg-gray-700 peer-focus:outline-none peer-focus:ring-4  rounded-full peer `}
               variants={switchVariants}
+              whileTap="click"
               animate={currentLanguage === "es" ? "checked" : "unchecked"} 
             >
               <span
