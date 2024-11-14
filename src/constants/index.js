@@ -199,7 +199,14 @@ const experiences = [
     company_name: 'Exos TECHNOLOGY',
     icon: leader,
     iconBg: '#333333',
-    date: 'Jan 2024',
+    date: 'Jan 2024 - Jun 2024',
+  },
+  {
+    title: 'Tech Leader',
+    company_name: 'EGLOBAL',
+    icon: leader,
+    iconBg: '#333333',
+    date: 'Jun 2024',
   },
 ];
 

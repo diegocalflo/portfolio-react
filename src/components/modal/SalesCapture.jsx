@@ -46,10 +46,12 @@ const SalesCapture = ({ handleClose, isOpen }) => {
             animate={{ y: "0%", opacity: 1 }}
             exit={{ y: "-50%", opacity: 0 }}
             style={{
-              width: "70%",
-              height: "85%",
+              width: "65%",
+              height: "35%",
               background: "black",
               borderRadius: "20px",
+              marginTop: "7%",
+              marginBottom: "5%",
               padding: "20px",
             }}
           >
@@ -83,85 +85,6 @@ const SalesCapture = ({ handleClose, isOpen }) => {
               >
                 {t('saleCaptureDescription')}
               </motion.p>
-            </div>
-
-            <div className="mt-10 flex flex-col items-center justify-center">
-              <motion.div
-                className="mt-10 gap-20 h-auto bg-black-300 rounded-full flex items-center justify-between"
-                initial={{ x: "-1%" }}
-                animate={{ x: "0%" }}
-                transition={{
-                  delay: 0.2,
-                  type: "spring",
-                  stiffness: 100,
-                  damping: 10,
-                }}
-              >
-                {/* Primera imagen */}
-                <motion.img
-                  src={user}
-                  title="Cliente"
-                  alt="Imagen 1"
-                  className="w-full h-auto  rounded-3xl"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.3 }}
-                />
-                {/* Flecha */}
-                <motion.img
-                  src={arrow}
-                  alt="Flecha"
-                  className="w-full h-auto  rounded-3xl"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.6 }}
-                />
-                {/* Segunda imagen */}
-                <motion.img
-                  src={springboot}
-                  alt="Imagen 2"
-                  className="w-full h-auto" rounded-3xl
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.9 }}
-                />
-                {/* Flecha */}
-                <motion.img
-                  src={arrow}
-                  alt="Flecha"
-                  className="w-full h-auto" rounded-3xl
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 1.2 }}
-                />
-                {/* Tercera imagen */}
-                <motion.img
-                  src={apollo}
-                  alt="Imagen 3"
-                  className="w-full h-auto" rounded-3xl
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 1.5 }}
-                />
-                {/* Flecha */}
-                <motion.img
-                  src={arrow}
-                  alt="Flecha"
-                  className="w-full h-auto" rounded-3xl
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 1.8 }}
-                />
-                {/* Cuarta imagen */}
-                <motion.img
-                  src={graphql}
-                  alt="Imagen 4"
-                  className="w-full h-auto" rounded-3xl
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 2.1 }}
-                />
-              </motion.div>
             </div>
           </motion.div>
         </motion.div>

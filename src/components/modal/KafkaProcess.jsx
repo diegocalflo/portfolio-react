@@ -32,6 +32,7 @@ const KafkaProcess = ({ handleClose, isOpen }) => {
             left: 0,
             width: "100%",
             height: "100%",
+            backdropFilter: "blur(8px)",
             zIndex: "1000",
           }}
         >
@@ -42,8 +43,8 @@ const KafkaProcess = ({ handleClose, isOpen }) => {
             animate={{ y: "0%", opacity: 1 }}
             exit={{ y: "-50%", opacity: 0 }}
             style={{
-              width: "70%",
-              height: "85%",
+              width: "65%",
+              height: "40%",
               background: "black",
               borderRadius: "20px",
               padding: "20px",
@@ -84,28 +85,6 @@ const KafkaProcess = ({ handleClose, isOpen }) => {
               {t("kafkaMigracionDescription")}{" "}
               {/* Traducción de la descripción */}
             </motion.p>
-            {/* Imagen con diseño y animaciones */}
-            <motion.div
-              style={{
-                width: "80%",
-                alignItems: "center",
-                marginLeft: "10%",
-                marginTop: "5%",
-              }}
-              className="flex flex-wrap justify-center"
-            >
-              <motion.img
-                src={kafkaProcess}
-                title="Kafka Migration Process"
-                alt="Kafka Architecture"
-                className="max-w-50 h-auto rounded-3xl"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1, duration: 1.2 }}
-              />
-            </motion.div>
-
-            {/* Div vacío opcional */}
             <motion.div />
           </motion.div>
         </motion.div>
