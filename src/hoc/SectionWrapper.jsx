@@ -1,26 +1,14 @@
-import { motion } from 'framer-motion';
-import { styles } from '../styles';
-import { staggerContainer } from '../utils/motion';
-
-const SectionWrapper = (Component, idName) => {
-  function HOC() {
-    return (
-      <motion.section
-        variants={staggerContainer()}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: false, amount: 0.25 }}
-        className={`${styles.padding} max-w-7xl mx-auto relative z-0`}>
-        <span className="hash-span" id={idName}>
-          &nbsp;
-        </span>
-
+const SectionWrapper = (Component, idName, className = '') => {
+  const WrappedSection = () => (
+    <section className={`section ${className}`.trim()}>
+      <div id={idName} className="container section-anchor">
         <Component />
-      </motion.section>
-    );
-  }
+      </div>
+    </section>
+  );
 
-  return HOC;
+  WrappedSection.displayName = `SectionWrapper(${Component.displayName || Component.name || 'Component'})`;
+  return WrappedSection;
 };
 
 export default SectionWrapper;

@@ -1,43 +1,154 @@
 {
-    "title":"Portafolio",
-    "hello": "¡Hola!, soy Diego",
-    "resume" : "Soy Ingeniero en Desarrollo y Gestión de Software. Me gradué en el año 2022, pero he estado inmerso en el ámbito profesional desde mayo de 2020. A lo largo de mi trayectoria, he laborado en diversas áreas de mi carrera, desde QA tester  hasta asumir roles de desarrollador, y actualmente ejerciendo como Tech Leader.",
-    "changeLanguage": "Cambiar idioma",
-    "about": "Acerca de",
-    "skills":"Skills",
-    "projects":"Proyectos",
-    "contact":"Contacto",
-    "experience":"Experiencia",
-    "introduction":"Introducción",
-    "overview":"Resumen profesional.",
-    "overviewText": "Comencé mi desarrollo profesional en mayo de 2020 en Exos Technology, donde tuve la oportunidad de desempeñarme como becario en el área de testing QA. Durante este tiempo, adquirí habilidades sólidas en pruebas unitarias e integrales de proyectos de software, además de dominar la documentación exhaustiva y la generación de archivos de evidencia. Mi contribución más destacada en QA fue la implementación de herramientas de automatización de pruebas, tales como SmartBear, Katalon y Selenium. Estas herramientas fueron fundamentales para automatizar las pruebas de regresión del software, permitiéndonos generar múltiples escenarios y una matriz completa de resultados. Este enfoque no solo aumentó la eficiencia de nuestro proceso de desarrollo, sino que también mejoró significativamente la calidad y la consistencia del software entregado. Tiempo después, me trasladé al área de desarrollo, donde desempeñé un papel fundamental en diversos proyectos y enfrenté desafíos variados. En Exos, una empresa con un enfoque particular en el sector financiero, lideré la implementación de soluciones de software de diversa índole. Desde la creación de microservicios simples para la gestión de controversias y aclaraciones, hasta la elaboración de algoritmos sofisticados al igual que la implementación de procesos batch complejos; siempre participando activamente en todos los aspectos del desarrollo. Mi progresión en la empresa me llevó a asumir el rol de líder técnico, donde además de seguir desarrollando soluciones innovadoras, me dediqué a la planificación (generación de plan de trabajo), ejecución (revisión de avances, pruebas) y entrega exitosa de todos los proyectos.",
-    "frontend": "Desarrollador Frontend",
-    "backend": "Desarrollador Backend",
-    "ux": "Diseño UX/UI",
-    "qa": "QA",
-    "mySkills": "Mis habilidades",
-    "myResume": "Currículum",
-    "techs": "Tecnologías.",
-    "soFar": "Lo que he hecho hasta ahora...",
-    "workExperience": "Experiencia laboral.",
-    "touch": "Envíame un correo",
-    "contactTitle": "Contacto.",
-    "contactInfo": "Contáctame",
-    "yourName": "Tu nombre",
-    "yourEmail": "Tu email",
-    "yourMsg": "Tu mensaje",
-    "send": "Enviar",
-    "sending": "Enviando",
-    "sendingMsg": "Gracias. Me comunicaré contigo lo antes posible.",
-    "errorMsg":"Algo salió mal. Inténtalo de nuevo.",
-    "mail": "Correo",
+  "nav": {
+    "about": "Perfil",
+    "skills": "Habilidades",
+    "experience": "Experiencia",
+    "projects": "Proyectos",
+    "contact": "Contacto",
+    "menu": "Abrir menú",
+    "close": "Cerrar menú",
+    "language": "Cambiar idioma",
+    "theme": "Cambiar tema de color"
+  },
+  "hero": {
+    "eyebrow": "Tech Lead · Fullstack Software Developer",
+    "title": "Desarrollo productos full stack, del frontend a sistemas backend escalables.",
+    "summary": "Como desarrollador full stack y Tech Lead, conecto interfaces claras con APIs, datos y arquitecturas robustas. Cuento con más de seis años creando soluciones end-to-end, con experiencia destacada en sistemas financieros de alto rendimiento.",
+    "contactCta": "Hablemos",
+    "projectsCta": "Ver proyectos",
+    "availability": "Disponible para nuevos retos técnicos",
+    "metrics": {
+      "experience": "años de experiencia",
+      "throughput": "transacciones por segundo",
+      "volume": "transacciones procesadas al día"
+    }
+  },
+  "about": {
+    "eyebrow": "Perfil profesional",
+    "title": "Ingeniería de software con visión de negocio.",
+    "summary": "Me especializo en construir soluciones end-to-end para entornos donde el rendimiento, la trazabilidad y la confiabilidad son esenciales. Mi experiencia combina desarrollo hands-on, arquitectura y liderazgo de equipos multidisciplinarios.",
+    "detail": "Inicié en Quality Assurance y evolucioné hacia desarrollo fullstack y liderazgo técnico. Esa trayectoria me permite abordar cada sistema desde la experiencia del usuario, la calidad operativa y la sostenibilidad del código.",
+    "strengths": {
+      "architecture": { "title": "Arquitectura escalable", "text": "Microservicios y flujos event-driven preparados para altos volúmenes." },
+      "leadership": { "title": "Liderazgo técnico", "text": "Dirección de proyectos, documentación rigurosa y coordinación transversal." },
+      "delivery": { "title": "Entrega end-to-end", "text": "Del descubrimiento y diseño hasta ambientes productivos y monitoreo." },
+      "quality": { "title": "Calidad por diseño", "text": "Mentalidad de QA aplicada a seguridad, pruebas y mantenibilidad." }
+    }
+  },
+  "skills": {
+    "eyebrow": "Stack tecnológico",
+    "title": "Herramientas elegidas según el problema.",
+    "summary": "Experiencia práctica en backend, streaming, cloud, frontend y calidad de software.",
+    "groups": {
+      "languages": "Lenguajes",
+      "backend": "Backend y APIs",
+      "data": "Datos y mensajería",
+      "frontend": "Frontend",
+      "cloud": "Cloud y plataforma",
+      "quality": "Calidad y observabilidad"
+    }
+  },
+  "experience": {
+    "eyebrow": "Trayectoria",
+    "title": "De QA a liderazgo técnico.",
+    "current": "Actual",
+    "download": "Descargar CV en inglés",
+    "downloadNote": "La versión española actualizada estará disponible próximamente.",
+    "eglobal": {
+      "role": "Tech Lead",
+      "date": "2024 — Presente",
+      "points": [
+        "Liderazgo de soluciones bancarias con altos estándares de cumplimiento, documentación y control operativo.",
+        "Diseño de integraciones Kafka y componentes Spring Boot/jPOS para recepción y almacenamiento de transacciones casi en tiempo real.",
+        "Gestión de ambientes de desarrollo, QA y preproducción junto con equipos multidisciplinarios."
+      ]
+    },
+    "exosLead": {
+      "role": "Tech Lead",
+      "date": "2024",
+      "points": [
+        "Planeación técnica, seguimiento, pruebas y entrega de proyectos para el sector financiero.",
+        "Administración de componentes, accesos, bases de datos y documentación de operación."
+      ]
+    },
+    "exosDev": {
+      "role": "Junior Fullstack Developer",
+      "date": "2021 — 2023",
+      "points": [
+        "Desarrollo de aplicaciones con Java, Spring Boot, Node.js, GraphQL, JSF, Vue y JavaScript.",
+        "Implementación de APIs, procesos batch, microservicios y streaming con Kafka para datos financieros de alto volumen."
+      ]
+    },
+    "exosQa": {
+      "role": "Junior QA Tester",
+      "date": "2020 — 2021",
+      "points": [
+        "Automatización de pruebas con SmartBear, ampliando cobertura y agilizando regresiones.",
+        "Diseño de casos, matrices de prueba, evidencias y manuales de usuario."
+      ]
+    },
+    "freelance": {
+      "role": "Junior Fullstack Developer",
+      "date": "2020 — Presente",
+      "points": [
+        "Diseño y desarrollo del sitio de Colegio Brimmer con Vue, Vite y JavaScript.",
+        "Levantamiento de requisitos y creación de interfaces responsive con docentes y personal administrativo."
+      ]
+    }
+  },
+  "projects": {
+    "eyebrow": "Casos de estudio",
+    "title": "Resultados medibles en sistemas críticos.",
+    "summary": "Una selección de retos donde arquitectura, rendimiento y colaboración se convirtieron en impacto tangible.",
+    "view": "Ver caso",
+    "close": "Cerrar caso",
+    "impact": "Impacto",
+    "stack": "Tecnologías",
+    "pending": "Contenido en preparación",
+    "pendingSummary": "El detalle verificable de este caso se publicará próximamente.",
+    "sales": {
+      "title": "Captura de ventas BBVA–AMEX",
+      "summary": "Servicio centralizado para procesar grandes volúmenes de ventas e integrarse con distintos módulos financieros.",
+      "detail": "El reto fue procesar 16,000 registros en tres minutos sin comprometer flexibilidad ni trazabilidad. Construí el núcleo de servicios con Spring Boot y GraphQL, junto con un API Gateway en Apollo Federation para centralizar el acceso desde procesos relacionados. Tras evaluar distintos enfoques, la solución alcanzó el objetivo de rendimiento planteado."
+    },
+    "kafka": {
+      "title": "Plataforma transaccional con Kafka",
+      "summary": "Arquitectura event-driven para recibir, transformar y distribuir transacciones bancarias casi en tiempo real.",
+      "detail": "La solución evolucionó procesos batch de hasta 20 millones de transacciones diarias hacia procesamiento continuo. Integré CDC y Oracle GoldenGate con Informix y Oracle; además, implementé un productor jPOS para mensajes ISO 8583 y consumidores Spring Boot capaces de enrutar operaciones por institución, alcanzando hasta 1,000 transacciones por segundo."
+    },
+    "etl": {
+      "title": "Modernización de ETLs con Spring Batch",
+      "summary": "Migración de procesos ETL basados en Informix hacia un esquema moderno y mantenible con Spring Batch.",
+      "detail": "Trabajé en la migración de ETLs que operaban sobre Informix hacia una arquitectura de procesamiento con Spring Batch. Esta evolución permitió modernizar los procesos existentes, estructurar mejor su ejecución y establecer una base tecnológica más mantenible para su evolución."
+    },
+    "qa": {
+      "title": "Automatización de pruebas QA",
+      "summary": "Automatización de pruebas frontend y backend con SmartBear, Selenium y JUnit.",
+      "detail": "Desarrollé una estrategia de automatización centrada principalmente en SmartBear, complementada con Selenium y JUnit. La solución permitió automatizar flujos de prueba frontend y validar componentes backend, reduciendo tareas manuales repetitivas y fortaleciendo la cobertura de regresión."
+    }
+  },
+  "contact": {
+    "eyebrow": "Contacto",
+    "title": "Construyamos algo confiable.",
+    "summary": "¿Tienes un reto de arquitectura, integración o procesamiento de datos? Cuéntame el contexto y conversemos.",
+    "name": "Nombre",
+    "email": "Correo",
+    "message": "Mensaje",
+    "namePlaceholder": "Tu nombre",
+    "emailPlaceholder": "tu@empresa.com",
+    "messagePlaceholder": "Háblame del reto...",
+    "send": "Enviar mensaje",
+    "sending": "Enviando...",
+    "success": "Gracias. Tu mensaje fue enviado correctamente.",
+    "error": "No fue posible enviar el mensaje. También puedes escribirme directamente por correo.",
+    "configurationError": "El formulario aún no está configurado. Puedes contactarme por correo o LinkedIn.",
+    "direct": "Contacto directo",
+    "emailLabel": "Correo",
     "phone": "Teléfono",
-    "caseStudies": "Historias de éxito",
-    "proyects": "Proyectos.",
-    "achievements":"Explora una selección de proyectos donde he adquirido y puesto en práctica nuevas habilidades, enriqueciendo mi experiencia para alcanzar los objetivos planteados. Estos proyectos no solo reflejan el trabajo realizado, sino también el impacto tangible que he logrado. Explora cómo mis soluciones han generado resultados medibles y han contribuido al éxito tanto de mis clientes como de los equipos involucrados.",
-    "saleCapture": "Captura de ventas BBVA-AMEX",
-    "saleCaptureDescription": "Sin duda, uno de los proyectos más desafiantes que he tenido la oportunidad de desarrollar. No solo por su complejidad técnica y lógica, sino también por la necesidad de procesar grandes volúmenes de datos. Este módulo forma parte de un proyecto más amplio llamado eBind, siendo el primero en implementar GraphQL, Apollo Federation y Spring Boot. La decisión de utilizar GraphQL se debió a la necesidad de tener un servicio centralizado que permitiera a distintos módulos y procesos acceder a los servicios implementados para este proyecto. Dado que las ventas están interrelacionadas con otros procesos, la flexibilidad ofrecida por la biblioteca de Netflix resultó fundamental. Con este núcleo de servicios GraphQL independiente, se creó un API Gateway con Apollo Federation para facilitar las solicitudes al servicio de Ventas. A lo largo del desarrollo, se tuvieron que trabajar diferentes enfoques, ya que la meta era poder procesar 16k registros en 3 minutos, los cuales finalmente se lograron.",
-    "kafkaMigracion": "Migración Kafka",
-    "kafkaMigracionDescription": "Durante mi carrera, he trabajado en proyectos complejos de procesamiento de datos, diseñando soluciones Batch para manejar grandes volúmenes de transacciones. Sin embargo, al enfrentar un crecimiento de datos y requisitos de procesamiento en tiempo real, implementé una arquitectura basada en Kafka, permitiendo un procesamiento inmediato de hasta 1000 transacciones por segundo. Anteriormente, nuestro enfoque Batch procesaba cerca de 20 millones de transacciones diarias, pero solo durante la noche, lo que limitaba la capacidad del cliente. Con Kafka, CDC, y Oracle GoldenGate, configuré un entorno que permitía la conexión continua a bases de datos en tiempo real, incluyendo Informix y Oracle. En un proyecto adicional, diseñé e implementé una solución en la que utilicé JPOS como productor para recibir transacciones en ISO8583, transformarlas, y enviarlas como arreglos de bytes a un clúster de Kafka. Esta arquitectura permitía que el clúster recibiera transacciones desde varios bancos, facilitando la propagación de las transacciones a través de un consumidor central que redirigía las mismas a microservicios específicos para cada banco. Utilicé Spring Boot para la configuración de brokers y topics, asegurando la escalabilidad y eficiencia del sistema en un entorno de clúster.",
-    "downloadResume": "bAJA mi Currículum"
+    "locationLabel": "Ubicación",
+    "location": "Cuernavaca, Morelos, México",
+    "follow": "Perfiles profesionales"
+  },
+  "footer": "Diseñado y desarrollado por Diego Calderón.",
+  "skip": "Saltar al contenido"
 }

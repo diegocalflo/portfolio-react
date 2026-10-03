@@ -1,148 +1,78 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
-import { motion } from "framer-motion";
-import { styles } from "../styles";
-import { navLinks } from "../constants";
-import { close, menu } from "../assets";
+import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { navLinks } from '../constants';
 
 const Navbar = () => {
   const { t, i18n } = useTranslation();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [theme, setTheme] = useState(() => document.documentElement.dataset.theme || 'dark');
+  const language = i18n.resolvedLanguage?.startsWith('en') ? 'en' : 'es';
 
-  const [active, setActive] = useState("");
-  const [toggle, setToggle] = useState(false);
-  const [currentLanguage, setCurrentLanguage] = useState("es");
+  useEffect(() => {
+    const closeOnEscape = (event) => {
+      if (event.key === 'Escape') setMenuOpen(false);
+    };
+    window.addEventListener('keydown', closeOnEscape);
+    return () => window.removeEventListener('keydown', closeOnEscape);
+  }, []);
 
-  const toggleLanguage = () => {
-    const newLanguage = currentLanguage === "en" ? "es" : "en";
-    setCurrentLanguage(newLanguage);
-    i18n.changeLanguage(newLanguage);
-  };
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#071018' : '#f5f8fb');
+    localStorage.setItem('portfolio-theme', theme);
+  }, [theme]);
 
-  const switchVariants = {
-    checked: {
-      backgroundColor: "#333",
-      scale: 1
-    },
-    unchecked: {
-      backgroundColor: "#ccc",
-      scale: 1
-    },
-    click: {
-      scale: 0.2 
-    }
-  };
+  const changeLanguage = () => i18n.changeLanguage(language === 'es' ? 'en' : 'es');
+  const changeTheme = () => setTheme((current) => (current === 'dark' ? 'light' : 'dark'));
 
   return (
-    <nav
-      className={`${styles.paddingX} w-full flex items-center py-2 fixed 
-      top-0 z-20 bg-flashWhite sm:opacity-[0.97] xxs:h-[12vh]`}
-    >
-      <div className="w-full flex justify-between items-center max-w-7x2 mx-auto">
-        <Link
-          to="/"
-          className="flex items-center text-black text-3xl font-bold"
-          onClick={() => {
-            setActive("");
-            window.scrollTo(0, 0);
-          }}
-        >
-          <h2 className="text-lg font-poppins">{t("title")}</h2>{" "}
-        </Link>
-        <ul className="list-none hidden sm:flex flex-row gap-14 mt-2">
-          {navLinks.map((nav) => (
-            <li
-              key={nav.id}
-              className={`${
-                active === nav.title ? "text-french" : "text-eerieBlack"
-              } hover:text-taupe text-[21px] font-medium font-mova 
-                uppercase tracking-[3px] cursor-pointer nav-links`}
-              onClick={() => setActive(nav.title)}
-            >
-              <a href={`#${nav.id}`}>{t(nav.id)}</a>
-            </li>
-          ))}
-        </ul>
+    <header className="site-header">
+      <nav className="navbar container" aria-label="Main navigation">
+        <a className="brand" href="#main-content" aria-label="Diego Calderón — Home">
+          <span className="brand-mark" aria-hidden="true">DC</span>
+          <span className="brand-copy">
+            <strong>Diego Calderón</strong>
+            <small>Tech Lead</small>
+          </span>
+        </a>
 
-        {/* mobile */}
-        <div className="sm:hidden flex flex-1 w-screen justify-end items-center">
-          {toggle ? (
-            <div
-              className={`p-6 bg-flashWhite opacity-[0.98] absolute 
-                top-0 left-0 w-screen h-[100vh] z-10 menu ${
-                  toggle ? "menu-open" : "menu-close"
-                }`}
-            >
-              <div className="flex justify-end">
-                <img
-                  src={close}
-                  alt="close"
-                  className="w-[22px] h-[22px] object-contain cursor-pointer"
-                  onClick={() => setToggle(!toggle)}
-                />
-              </div>
-              <ul
-                className="list-none flex flex-col gap-[1rem] 
-                items-center justify-center mt-[10rem]"
-              >
-                {navLinks.map((nav) => (
-                  <li
-                    id={nav.id}
-                    key={nav.id}
-                    className={`${
-                      active === nav.title ? "text-french" : "text-eerieBlack"
-                    } text-[2rem] font-mono
-                    uppercase tracking-[10px] cursor-pointer`}
-                    onClick={() => {
-                      setToggle(!toggle);
-                      setActive(nav.title);
-                    }}
-                    style={{ all: "initial" }}
-                  >
-                    <a href={`#${nav.id}`}>{t(nav.id)}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ) : (
-            <img
-              src={menu}
-              alt="menu"
-              className="w-[34px] h-[34px] object-contain cursor-pointer"
-              onClick={() => setToggle(!toggle)}
-            />
-          )}
+        <div id="mobile-navigation" className={`nav-panel ${menuOpen ? 'is-open' : ''}`}>
+          <ul className="nav-links">
+            {navLinks.map((link) => (
+              <li key={link.id}>
+                <a href={`#${link.id}`} onClick={() => setMenuOpen(false)}>
+                  {t(link.labelKey)}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <div className="nav-controls">
+            <button className="language-button" type="button" onClick={changeLanguage} aria-label={t('nav.language')}>
+              <span className={language === 'es' ? 'is-active' : ''}>ES</span>
+              <span aria-hidden="true">/</span>
+              <span className={language === 'en' ? 'is-active' : ''}>EN</span>
+            </button>
+            <button className="theme-button" type="button" onClick={changeTheme} aria-label={t('nav.theme')}>
+              <span className={theme === 'dark' ? 'is-active' : ''}>DARK</span>
+              <span aria-hidden="true">/</span>
+              <span className={theme === 'light' ? 'is-active' : ''}>LIGHT</span>
+            </button>
+          </div>
         </div>
-        <motion.div className="ml-2 items-center">
-          {/* Botones de idioma con clases y estilos */}
-          <label className="inline-flex items-center cursor-pointer">
-            <input
-              type="checkbox"
-              value=""
-              className="sr-only peer"
-              onChange={toggleLanguage}
-              checked={currentLanguage === "es"}
-            />
-            <motion.div
-              className={`relative border-black w-11 h-6 bg-gray-700 peer-focus:outline-none peer-focus:ring-4  rounded-full peer `}
-              variants={switchVariants}
-              whileTap="click"
-              animate={currentLanguage === "es" ? "checked" : "unchecked"} 
-            >
-              <span
-                className={`absolute start-3 text-sm font-medium ${
-                  currentLanguage === "es"
-                    ? "text-white"
-                    : "text-gray-900"
-                }`}
-              >
-                {currentLanguage === "es" ? "ES" : "EN"}
-              </span>
-            </motion.div>
-          </label>
-        </motion.div>
-      </div>
-    </nav>
+
+        <button
+          className="menu-button"
+          type="button"
+          aria-expanded={menuOpen}
+          aria-controls="mobile-navigation"
+          aria-label={menuOpen ? t('nav.close') : t('nav.menu')}
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <span />
+          <span />
+        </button>
+      </nav>
+    </header>
   );
 };
 

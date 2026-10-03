@@ -1,174 +1,111 @@
-import { useState, useRef } from "react";
-import { motion } from "framer-motion";
-import { useTranslation } from "react-i18next";
-import emailjs from "@emailjs/browser";
-import { styles } from "../styles";
-import { SectionWrapper } from "../hoc";
-import { slideIn } from "../utils/motion";
-import { send, sendHover } from "../assets";
+import { useState } from 'react';
+import emailjs from '@emailjs/browser';
+import { useTranslation } from 'react-i18next';
+import { socialLinks } from '../constants';
+import { SectionWrapper } from '../hoc';
+
+const initialForm = { name: '', email: '', message: '', company: '' };
 
 const Contact = () => {
-  const { t, i18n } = useTranslation();
-  const formRef = useRef();
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [loading, setLoading] = useState(false);
-  const [showAlert, setShowAlert] = useState(false);
-  const [alertMessage, setAlertMessage] = useState("");
+  const { t } = useTranslation();
+  const [form, setForm] = useState(initialForm);
+  const [status, setStatus] = useState('idle');
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-
-    setForm({ ...form, [name]: value });
+  const handleChange = ({ target }) => {
+    setForm((current) => ({ ...current, [target.name]: target.value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setLoading(true);
-    emailjs
-      .send(
-        "service_conhu05",
-        "template_hv3exxq",
-        {
-          from_name: form.name,
-          to_name: "Diego",
-          from_email: form.email,
-          to_email: "dcalflo8@gmail.com",
-          message: form.message,
-        },
-        "19WUZoQEN6zSopk38"
-      )
-      .then(
-        () => {
-          setLoading(false);
-          setLoading(false);
-          setShowAlert(true);
-          setAlertMessage("");
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    if (form.company) return;
 
-          setForm({
-            name: "",
-            email: "",
-            message: "",
-          });
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      setStatus('configurationError');
+      return;
+    }
+
+    setStatus('sending');
+    try {
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: form.name.trim(),
+          from_email: form.email.trim(),
+          message: form.message.trim(),
+          to_name: 'Diego',
         },
-        (error) => {
-          setLoading(false);
-          setShowAlert(true);
-          setAlertMessage("Something went wrong. Please try again.");
-          setTimeout(() => setShowAlert(false), 5000);
-          console.log(error);
-        }
+        { publicKey },
       );
+      setForm(initialForm);
+      setStatus('success');
+    } catch {
+      setStatus('error');
+    }
   };
 
   return (
-    <div
-      className="-mt-[8rem] xl:flex-row flex-col-reverse 
-      flex gap-10 overflow-hidden"
-    >
-      <motion.div
-        variants={slideIn("left", "tween", 0.2, 1)}
-        className="flex-[0.75] bg-jet p-8 rounded-2xl"
-      >
-        <p className={styles.sectionSubText}>{t("touch")}</p>
-        <h3 className={styles.sectionHeadTextLight}>{t("contactTitle")}</h3>
+    <>
+      <div className="contact-layout">
+        <div className="contact-copy">
+          <p className="eyebrow"><span />{t('contact.eyebrow')}</p>
+          <h2>{t('contact.title')}</h2>
+          <p>{t('contact.summary')}</p>
 
-        <form
-          ref={formRef}
-          onSubmit={handleSubmit}
-          className="mt-10 flex flex-col gap-6 font-poppins"
-        >
-          <label className="flex flex-col">
-            <span className="text-timberWolf font-medium mb-4">
-              {t("yourName")}
-            </span>
-            <input
-              type="text"
-              name="name"
-              value={form.name}
-              onChange={handleChange}
-              className="bg-eerieBlack py-4 px-6
-              placeholder:text-taupe
-              text-timberWolf rounded-lg outline-none
-              border-none font-medium"
-            />
-          </label>
-          <label className="flex flex-col">
-            <span className="text-timberWolf font-medium mb-4">
-              {t("yourEmail")}
-            </span>
-            <input
-              type="email"
-              name="email"
-              value={form.email}
-              onChange={handleChange}
-              className="bg-eerieBlack py-4 px-6
-              placeholder:text-taupe
-              text-timberWolf rounded-lg outline-none
-              border-none font-medium"
-            />
-          </label>
-          <label className="flex flex-col">
-            <span className="text-timberWolf font-medium mb-4">
-              {t("yourMsg")}
-            </span>
-            <textarea
-              rows="7"
-              name="message"
-              value={form.message}
-              onChange={handleChange}
-              className="bg-eerieBlack py-4 px-6
-              placeholder:text-taupe
-              text-timberWolf rounded-lg outline-none
-              border-none font-medium resize-none"
-            />
-          </label>
+          <div className="contact-details">
+            <p><span>{t('contact.emailLabel')}</span><a href={socialLinks.email}>dcalflo8@gmail.com</a></p>
+            <p><span>{t('contact.phone')}</span><a href="tel:+527771911219">+52 777 191 1219</a></p>
+            <p><span>{t('contact.locationLabel')}</span>{t('contact.location')}</p>
+          </div>
 
-          <button
-            type="submit"
-            className="live-demo flex justify-center sm:gap-4 
-            gap-3 sm:text-[20px] text-[16px] text-timberWolf 
-            font-bold font-beckman items-center py-5
-            whitespace-nowrap sm:w-[130px] sm:h-[50px] 
-            w-[150px] h-[45px] rounded-[10px] bg-night 
-            hover:bg-battleGray hover:text-eerieBlack 
-            transition duration-[0.2s] ease-in-out"
-            onMouseOver={() => {
-              document
-                .querySelector(".contact-btn")
-                .setAttribute("src", sendHover);
-            }}
-            onMouseOut={() => {
-              document.querySelector(".contact-btn").setAttribute("src", send);
-            }}
-          >
-            {loading ? t("sending") : t("send")}
-            <img
-              src={send}
-              alt="send"
-              className="contact-btn sm:w-[26px] sm:h-[26px] 
-              w-[23px] h-[23px] object-contain"
-            />
-          </button>
-          {showAlert && <div className="alert">{alertMessage}</div>}
+          <div className="social-links" aria-label={t('contact.follow')}>
+            <a href={socialLinks.github} target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+            <a href={socialLinks.linkedin} target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+
+        <form className="contact-form" onSubmit={handleSubmit}>
+          <div className="form-row">
+            <label>
+              <span>{t('contact.name')}</span>
+              <input name="name" value={form.name} onChange={handleChange} placeholder={t('contact.namePlaceholder')} maxLength="80" autoComplete="name" required />
+            </label>
+            <label>
+              <span>{t('contact.email')}</span>
+              <input type="email" name="email" value={form.email} onChange={handleChange} placeholder={t('contact.emailPlaceholder')} maxLength="120" autoComplete="email" required />
+            </label>
+          </div>
+          <label>
+            <span>{t('contact.message')}</span>
+            <textarea name="message" value={form.message} onChange={handleChange} placeholder={t('contact.messagePlaceholder')} maxLength="2000" rows="6" required />
+          </label>
+          <label className="honeypot" aria-hidden="true">
+            Company
+            <input name="company" value={form.company} onChange={handleChange} tabIndex="-1" autoComplete="off" />
+          </label>
+          <div className="form-footer">
+            <button className="button button-primary" type="submit" disabled={status === 'sending'}>
+              {status === 'sending' ? t('contact.sending') : t('contact.send')}
+            </button>
+            {status !== 'idle' && status !== 'sending' && (
+              <p className={`form-status ${status === 'success' ? 'is-success' : 'is-error'}`} role="status">
+                {t(`contact.${status}`)}
+              </p>
+            )}
+          </div>
         </form>
-      </motion.div>
-      <motion.div
-        variants={slideIn("right", "tween", 0.2, 1)}
-        className="flex-[0.25] bg-white p-8 rounded-2xl font-poppins"
-      >
-        <h3 className="text-black text-xl font-bold mb-8">{t("contactInfo")}</h3>
-        <ul className="text-black font-medium gap-2 mt-2">
-          <li>{t("mail")}: dcalflo8@gmail.com</li>
-          <li>{t("phone")}: +52 777-191-1219</li>
-          {/* Agrega más información de contacto según sea necesario */}
-        </ul>
-      </motion.div>
-    </div>
+      </div>
+
+      <footer className="footer">
+        <span>© {new Date().getFullYear()} Diego Calderón</span>
+        <span>{t('footer')}</span>
+      </footer>
+    </>
   );
 };
 
-export default SectionWrapper(Contact, "contact");
+export default SectionWrapper(Contact, 'contact');

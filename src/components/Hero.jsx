@@ -1,51 +1,46 @@
-import { motion } from "framer-motion";
-import { styles } from "../styles";
-import { bwmap, worldmap } from "../assets";
-import { useTranslation } from "react-i18next";
-import i18n from "../i18n/i18n";
+import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+import { metrics } from '../constants';
 
 const Hero = () => {
   const { t } = useTranslation();
 
   return (
-    <>
-      <section
-        className="relative flex sm:flex-row flex-col w-full h-screen mx-auto 
-        sm:bg-hero bg-hero-mobile overflow-hidden"
-      >
-        <div
-          className={`absolute inset-0 sm:top-[250px] top-[100px] 
-          lg:top-[150px] xl:top-[250px] ${styles.paddingX} 
-          max-w-6x1 mx-auto flex flex-row items-start
-          justify-between gap-1`}
+    <section className="hero" aria-labelledby="hero-title">
+      <div className="hero-grid" aria-hidden="true" />
+      <div className="hero-glow" aria-hidden="true" />
+      <div className="container hero-content">
+        <motion.div
+          className="hero-copy"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.65 }}
         >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.9 }}
-          >
-            <h1
-              className={`${styles.heroHeadText} uppercase p-2 rounded-xl`}
-            >
-              {t("hello")}{" "}
+          <p className="eyebrow"><span />{t('hero.eyebrow')}</p>
+          <h1 id="hero-title">{t('hero.title')}</h1>
+          <p className="hero-summary">{t('hero.summary')}</p>
+          <div className="hero-actions">
+            <a className="button button-primary" href="#contact">{t('hero.contactCta')}</a>
+            <a className="button button-secondary" href="#projects">{t('hero.projectsCta')}</a>
+          </div>
+          <p className="availability"><span aria-hidden="true" />{t('hero.availability')}</p>
+        </motion.div>
 
-            </h1>
-
-            <p
-              className={`${styles.heroSubText} mt-2 p-2 rounded-xl`}
-            >
-              {t("resume")}
-            </p>
-          </motion.div>
-          <div
-            className="w-screen flex flex-col items-start 
-            justify-center sm:-ml-[3rem] xxs:mt-4"
-          ></div>
-
-          <div></div>
-        </div>
-      </section>
-    </>
+        <motion.dl
+          className="metric-grid"
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.65, delay: 0.15 }}
+        >
+          {metrics.map((metric) => (
+            <div className="metric-card" key={metric.labelKey}>
+              <dt>{t(metric.labelKey)}</dt>
+              <dd>{metric.value}</dd>
+            </div>
+          ))}
+        </motion.dl>
+      </div>
+    </section>
   );
 };
 

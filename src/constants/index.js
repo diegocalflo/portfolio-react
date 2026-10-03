@@ -1,247 +1,191 @@
 import {
-  frontend,
-  backend,
-  ux,
-  assurance,
-  javascript,
-  java,
-  html,
-  kafka,
-  springboot,
-  springbatch,
-  quasar,
-  vue,
-  jsf,
-  bitbucket,
+  automated,
   aws,
-  apollo,
-  mysql,
-  sqlserver,
-  informix,
-  oracle,
+  bitbucket,
   css,
-  reactjs,
-  nodejs,
-  git,
-  postgresql,
-  graphql,
-  salescapture,
-  leader,
-  developer,
-  kafkaproject,
-  qa,
-  mongo,
-  batch,
   etl,
-  automated
+  git,
+  graphql,
+  html,
+  java,
+  javascript,
+  jsf,
+  kafka,
+  kafkaproject,
+  mongo,
+  nodejs,
+  oracle,
+  postgresql,
+  quasar,
+  react,
+  salescapture,
+  springboot,
+  vue,
 } from '../assets';
 
 export const navLinks = [
-  {
-    id: 'about',
-    title: 'Acerca de',
-  },
-  {
-    id: 'skills',
-    title: 'Skills',
-  },
-  {
-    id: 'projects',
-    title: 'Proyectos',
-  },
-  {
-    id: 'experience',
-    title: 'Experiencia laboral',
-  },
+  { id: 'about', labelKey: 'nav.about' },
+  { id: 'skills', labelKey: 'nav.skills' },
+  { id: 'experience', labelKey: 'nav.experience' },
+  { id: 'projects', labelKey: 'nav.projects' },
+  { id: 'contact', labelKey: 'nav.contact' },
+];
 
+export const metrics = [
+  { value: '6+', labelKey: 'hero.metrics.experience' },
+  { value: '1,000', labelKey: 'hero.metrics.throughput' },
+  { value: '20M', labelKey: 'hero.metrics.volume' },
+];
+
+export const strengths = [
+  { number: '01', titleKey: 'about.strengths.architecture.title', textKey: 'about.strengths.architecture.text' },
+  { number: '02', titleKey: 'about.strengths.leadership.title', textKey: 'about.strengths.leadership.text' },
+  { number: '03', titleKey: 'about.strengths.delivery.title', textKey: 'about.strengths.delivery.text' },
+  { number: '04', titleKey: 'about.strengths.quality.title', textKey: 'about.strengths.quality.text' },
+];
+
+export const skillGroups = [
   {
-    id: 'contact',
-    title: 'Contacto',
+    titleKey: 'skills.groups.languages',
+    items: [
+      { name: 'Java', icon: java },
+      { name: 'JavaScript', icon: javascript },
+      { name: 'Python', short: 'Py' },
+      { name: 'Kotlin', short: 'Kt' },
+    ],
+  },
+  {
+    titleKey: 'skills.groups.backend',
+    items: [
+      { name: 'Spring Boot', icon: springboot },
+      { name: 'Node.js', icon: nodejs },
+      { name: 'GraphQL', icon: graphql },
+      { name: 'jPOS', short: 'jP' },
+      { name: 'JSF', icon: jsf },
+    ],
+  },
+  {
+    titleKey: 'skills.groups.data',
+    items: [
+      { name: 'Kafka', icon: kafka },
+      { name: 'Flink', short: 'Fl' },
+      { name: 'PostgreSQL', icon: postgresql },
+      { name: 'Oracle', icon: oracle },
+      { name: 'MongoDB', icon: mongo },
+      { name: 'SQL', short: 'SQL' },
+    ],
+  },
+  {
+    titleKey: 'skills.groups.frontend',
+    items: [
+      { name: 'React', icon: react },
+      { name: 'Vue', icon: vue },
+      { name: 'Quasar', icon: quasar },
+      { name: 'HTML', icon: html },
+      { name: 'CSS', icon: css },
+    ],
+  },
+  {
+    titleKey: 'skills.groups.cloud',
+    items: [
+      { name: 'AWS', icon: aws },
+      { name: 'GCP', short: 'G' },
+      { name: 'Docker', short: 'Dk' },
+      { name: 'Kubernetes', short: 'K8s' },
+      { name: 'OpenShift', short: 'OS' },
+    ],
+  },
+  {
+    titleKey: 'skills.groups.quality',
+    items: [
+      { name: 'Datadog', short: 'DD' },
+      { name: 'SmartBear', short: 'SB' },
+      { name: 'Git', icon: git },
+      { name: 'Bitbucket', icon: bitbucket },
+      { name: 'Test automation', short: 'QA' },
+    ],
   },
 ];
 
-const services = [
+export const experiences = [
   {
-    title: 'Frontend Developer',
-    icon: frontend,
-    field:'frontend'
+    roleKey: 'experience.eglobal.role',
+    company: 'Servicios Electrónicos Globales',
+    dateKey: 'experience.eglobal.date',
+    pointsKey: 'experience.eglobal.points',
+    current: true,
   },
   {
-    title: 'Backend Developer',
-    icon: backend,
-    field:'backend'
+    roleKey: 'experience.exosLead.role',
+    company: 'EXOS Technology',
+    dateKey: 'experience.exosLead.date',
+    pointsKey: 'experience.exosLead.points',
   },
   {
-    title: 'UI/UX Design',
-    icon: ux,
-    field:'ux'
+    roleKey: 'experience.exosDev.role',
+    company: 'EXOS Technology',
+    dateKey: 'experience.exosDev.date',
+    pointsKey: 'experience.exosDev.points',
   },
   {
-    title: 'QA',
-    icon: assurance,
-    field:'qa'
-  },
-];
-
-const technologies = [
-  {
-    name: 'HTML 5',
-    icon: html,
+    roleKey: 'experience.exosQa.role',
+    company: 'EXOS Technology',
+    dateKey: 'experience.exosQa.date',
+    pointsKey: 'experience.exosQa.points',
   },
   {
-    name: 'CSS 3',
-    icon: css,
-  },
-  {
-    name: 'JavaScript',
-    icon: javascript,
-  },
-  {
-    name: 'Java',
-    icon: java,
-  },
-  {
-    name: 'React JS',
-    icon: reactjs,
-  },
-  {
-    name: 'Node JS',
-    icon: nodejs,
-  },
-  {
-    name: 'GraphQL',
-    icon: graphql,
-  },
-  {
-    name: 'PostgreSQL',
-    icon: postgresql,
-  },
-  {
-    name: 'Git',
-    icon: git,
-  },
-  {
-    name: 'Spring Boot',
-    icon: springboot,
-  },
-  {
-    name: 'Spring Batch',
-    icon: springbatch,
-  },
-  {
-    name: 'Quasar',
-    icon: quasar,
-  },
-  {
-    name: 'Vue',
-    icon: vue,
-  },
-  {
-    name: 'Kafka',
-    icon: kafka,
-  },
-  {
-    name: 'JSF (JavaServer Faces)',
-    icon: jsf,
-  },
-  {
-    name: 'Bitbucket',
-    icon: bitbucket,
-  },
-  {
-    name: 'AWS',
-    icon: aws,
-  },
-  {
-    name: 'Apollo Federation',
-    icon: apollo,
-  },
-  {
-    name: 'MySQL',
-    icon: mysql,
-  },
-  {
-    name: 'SQL Server',
-    icon: sqlserver,
-  },
-  {
-    name: 'Informix',
-    icon: informix,
-  },
-  {
-    name: 'Oracle',
-    icon: oracle,
-  },
-  {
-    name: 'Mongo DB',
-    icon: mongo,
+    roleKey: 'experience.freelance.role',
+    company: 'Freelance',
+    dateKey: 'experience.freelance.date',
+    pointsKey: 'experience.freelance.points',
   },
 ];
 
-
-const experiences = [
+export const projects = [
   {
-    title: 'QA Tester',
-    company_name: 'Exos TECHNOLOGY',
-    icon: qa,
-    iconBg: '#333333',
-    date: 'May 2020 - Oct 2021',
-  },
-  {
-    title: 'Junior Developer',
-    company_name: 'Exos TECHNOLOGY',
-    icon: developer,
-    iconBg: '#333333',
-    date: 'Oct 2021 - Jan 2024',
-  },
-  {
-    title: 'Tech Leader',
-    company_name: 'Exos TECHNOLOGY',
-    icon: leader,
-    iconBg: '#333333',
-    date: 'Jan 2024 - Jun 2024',
-  },
-  {
-    title: 'Tech Leader',
-    company_name: 'EGLOBAL',
-    icon: leader,
-    iconBg: '#333333',
-    date: 'Jun 2024',
-  },
-];
-
-const projects = [
-  {
-    id: 'project-1',
-    name: 'Captura de ventas',
-    description: 'A comic characters list app that displays Marvel characters.',
+    id: 'sales-capture',
+    titleKey: 'projects.sales.title',
+    summaryKey: 'projects.sales.summary',
+    detailKey: 'projects.sales.detail',
+    impact: '16K / 3 min',
     image: salescapture,
-    component: 'SalesCapture'
+    technologies: ['Spring Boot', 'GraphQL', 'Apollo Federation'],
+    ready: true,
   },
   {
-    id: 'project-2',
-    name: 'Kafka',
-    description:
-      'A leaderboard list app that displays scores submitted by different players.',
+    id: 'kafka-platform',
+    titleKey: 'projects.kafka.title',
+    summaryKey: 'projects.kafka.summary',
+    detailKey: 'projects.kafka.detail',
+    impact: '1,000 tx/s',
     image: kafkaproject,
-    component: 'KafkaProcess'
-  
+    technologies: ['Kafka', 'jPOS', 'Spring Boot', 'ISO 8583'],
+    ready: true,
   },
   {
-    id: 'project-3',
-    name: 'Migración ETLs',
-    description: `A single-page application that allows users to search for any movie or show's ratings and its details.`,
+    id: 'etl-migration',
+    titleKey: 'projects.etl.title',
+    summaryKey: 'projects.etl.summary',
+    detailKey: 'projects.etl.detail',
+    impact: 'Informix → Spring Batch',
     image: etl,
-    component: 'EtlMigration'
+    technologies: ['Informix', 'Spring Batch', 'ETL'],
+    ready: true,
   },
   {
-    id: 'project-4',
-    name: 'QA Test Automation',
-    description:
-      'This is a demo concert website for a music festival called Nyeusi.',
+    id: 'qa-automation',
+    titleKey: 'projects.qa.title',
+    summaryKey: 'projects.qa.summary',
+    detailKey: 'projects.qa.detail',
+    impact: 'Frontend + Backend',
     image: automated,
-    component: 'Automation'
+    technologies: ['SmartBear', 'Selenium', 'JUnit'],
+    ready: true,
   },
 ];
 
-export { services, technologies, experiences, projects };
+export const socialLinks = {
+  github: 'https://github.com/diegocalflo',
+  linkedin: 'https://www.linkedin.com/in/diego-calderon-9921a03ab',
+  email: 'mailto:dcalflo8@gmail.com',
+};

@@ -1,140 +1,119 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { SectionWrapper } from "../hoc";
-import { styles } from "../styles";
-import { projects } from "../constants";
-import { fadeIn, textVariant, staggerContainer } from "../utils/motion";
-import { useTranslation } from "react-i18next";
-import SalesCapture from "../components/modal/SalesCapture.jsx";
-import KafkaProcess from "../components/modal/KafkaProcess.jsx";
-import EtlMigration from "../components/modal/EtlMigration.jsx";
-import Automation from "../components/modal/Automation.jsx";
+import { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+import { projects } from '../constants';
+import { SectionWrapper } from '../hoc';
 
-const Modal = ({ handleClose, isOpen, component }) => {
-  let componentRender;
+const ProjectModal = ({ project, onClose }) => {
+  const { t } = useTranslation();
+  const dialogRef = useRef(null);
 
-  console.log("component recieved: ", component);
+  useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
+    const previousFocus = document.activeElement;
+    document.body.style.overflow = 'hidden';
+    dialogRef.current?.querySelector('button')?.focus();
 
-  switch (component) {
-    case "SalesCapture":
-      componentRender = (
-        <SalesCapture handleClose={handleClose} isOpen={isOpen} />
-      );
-      break;
-    case "KafkaProcess":
-      componentRender = (
-        <KafkaProcess handleClose={handleClose} isOpen={isOpen} />
-      );
-      break;
-    case "EtlMigration":
-      componentRender = (
-        <EtlMigration handleClose={handleClose} isOpen={isOpen} />
-      );
-      break;
-    case "Automation":
-      componentRender = (
-        <Automation handleClose={handleClose} isOpen={isOpen} />
-      );
-      break;
-  }
+    const handleKeyboard = (event) => {
+      if (event.key === 'Escape') onClose();
+      if (event.key !== 'Tab') return;
 
-  return <div>{componentRender}</div>;
-};
+      const focusable = dialogRef.current?.querySelectorAll('button, a, input, textarea, [tabindex]:not([tabindex="-1"])');
+      if (!focusable?.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    window.addEventListener('keydown', handleKeyboard);
 
-const ProjectCard = ({ id, name, image, index, handleClick }) => {
-  return (
-    <motion.div
-      variants={fadeIn("right", "spring", index * 0.5, 0.75)}
-      className={`relative lg:flex-[0.5] flex-[2]
-      flex items-center justify-center min-w-[200px] 
-      h-[420px] cursor-pointer card-shadow`}
-      onClick={() => handleClick(id)}
-    >
-      <div
-        className="absolute top-0 left-0 z-10 bg-jetLight 
-      h-full w-full opacity-[0.5] rounded-[24px]"
-      ></div>
-
-      <img
-        src={image}
-        alt={name}
-        className="absolute w-full h-full object-contain rounded-[24px]"
-      />
-      <div className="flex items-center justify-start pr-[4.5rem]">
-        <h3
-          className="font-poppins uppercase mr-20px w-[200px] h-[80px] 
-        whitespace-nowrap sm:text-[27px] text-[18px] text-timberWolf tracking-[1px]
-        absolute lg:bottom-[7rem] lg:rotate-[-90deg] lg:origin-[0,0]
-        leading-none z-20"
-        >
-          {name}
-        </h3>
-      </div>
-    </motion.div>
-  );
-};
-
-const Projects = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [activeProject, setActiveProject] = useState(null);
-  const [activeComponent, setActiveComponent] = useState(null);
-  const { t, i18n } = useTranslation();
-
-  const handleProjectClick = (projectId, component) => {
-    setActiveComponent(component);
-    setActiveProject(projectId);
-    setIsOpen(true);
-  };
-
-  const handleModalClose = () => {
-    setIsOpen(false);
-    setActiveProject(null);
-  };
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', handleKeyboard);
+      previousFocus?.focus();
+    };
+  }, [onClose]);
 
   return (
-    <div className="-mt-[6rem]">
-      <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText} `}>{t("caseStudies")}</p>
-        <h2 className={`${styles.sectionHeadTextLight}`}>{t("proyects")}</h2>
-      </motion.div>
-
-      <div className="w-full flex">
-        <motion.p
-          variants={fadeIn("", "", 0.1, 1)}
-          className="mt-4 text-taupe font-poppins text-justify text-[18px] max-w-3xl leading-[30px]"
-        >
-          {t("achievements")}
-        </motion.p>
-      </div>
-
+    <div className="modal-backdrop" role="presentation" onMouseDown={(event) => event.target === event.currentTarget && onClose()}>
       <motion.div
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: false, amount: 0.25 }}
-        className={`${styles.innerWidth} mx-auto flex flex-col`}
+        ref={dialogRef}
+        className="project-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="project-modal-title"
+        tabIndex="-1"
+        initial={{ opacity: 0, y: 20, scale: 0.98 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
       >
-        <div className="mt-[50px] flex lg:flex-row flex-col min-h-[50vh] gap-10">
-          {projects.map((project, index) => (
-            <ProjectCard
-              key={project.id}
-              index={index}
-              {...project}
-              handleClick={() =>
-                handleProjectClick(project.id, project.component)
-              }
-            />
-          ))}
+        <button className="modal-close" type="button" onClick={onClose} aria-label={t('projects.close')}>×</button>
+        <p className="eyebrow"><span />{t('projects.impact')}</p>
+        <p className="project-impact">{project.impact}</p>
+        <h2 id="project-modal-title">{t(project.titleKey)}</h2>
+        <p className="modal-detail">{t(project.detailKey)}</p>
+        <div className="modal-stack">
+          <span>{t('projects.stack')}</span>
+          <ul>{project.technologies.map((technology) => <li key={technology}>{technology}</li>)}</ul>
         </div>
       </motion.div>
-
-      <Modal
-        handleClose={handleModalClose}
-        isOpen={isOpen}
-        component={activeComponent}
-      />
     </div>
   );
 };
 
-export default SectionWrapper(Projects, "projects");
+const Projects = () => {
+  const { t } = useTranslation();
+  const [activeProject, setActiveProject] = useState(null);
+
+  return (
+    <>
+      <div className="section-heading split-heading">
+        <div>
+          <p className="eyebrow"><span />{t('projects.eyebrow')}</p>
+          <h2>{t('projects.title')}</h2>
+        </div>
+        <p className="section-summary">{t('projects.summary')}</p>
+      </div>
+
+      <div className="project-grid">
+        {projects.map((project, index) => (
+          <motion.article
+            className={`project-card ${project.ready ? '' : 'is-pending'}`}
+            key={project.id}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ delay: index * 0.07 }}
+          >
+            <div className="project-visual">
+              <img src={project.image} alt="" loading="lazy" />
+              {project.impact && <span className="impact-chip">{project.impact}</span>}
+            </div>
+            <div className="project-body">
+              <h3>{t(project.titleKey)}</h3>
+              <p>{t(project.summaryKey)}</p>
+              <ul className="tag-list">
+                {project.technologies.map((technology) => <li key={technology}>{technology}</li>)}
+              </ul>
+              {project.ready ? (
+                <button className="text-link" type="button" onClick={() => setActiveProject(project)}>
+                  {t('projects.view')} <span aria-hidden="true">↗</span>
+                </button>
+              ) : (
+                <span className="pending-label">{t('projects.pending')}</span>
+              )}
+            </div>
+          </motion.article>
+        ))}
+      </div>
+
+      {activeProject && <ProjectModal project={activeProject} onClose={() => setActiveProject(null)} />}
+    </>
+  );
+};
+
+export default SectionWrapper(Projects, 'projects', 'section-dark');

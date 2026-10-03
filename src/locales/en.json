@@ -1,45 +1,154 @@
 {
-    "title":"Portfolio",
-    "hello": "Hello! My name is Diego",
-    "resume": "I am a Software Development and Management Engineer. I graduated in 2022, but I have been immersed in the professional field since May 2020. Throughout my career, I have worked in various areas of my field, from QA tester to taking on developer roles, and currently serving as a Tech Leader.",
-    "changeLanguage": "Change language",
-    "about": "About",
-    "skills":"Skills",
-    "contact":"Contact",
-    "projects":"Projects",
-    "experience":"Experience",
-    "introduction":"Introduction",
-    "overview":"Overview.",
-    "overviewText":"I began my professional development in May 2020 at Exos Technology, where I had the opportunity to work as an intern in the QA testing area. During this time, I acquired solid skills in unit and integration testing of software projects, as well as mastering comprehensive documentation and evidence file generation. My most notable contribution in QA was the implementation of test automation tools, such as SmartBear, Katalon, and Selenium. These tools were essential for automating software regression testing, allowing us to generate multiple scenarios and a comprehensive results matrix. This approach not only increased the efficiency of our development process, but also significantly improved the quality and consistency of the delivered software. Later on, I transitioned to the development area, where I played a key role in various projects and faced diverse challenges. At Exos, a company with a particular focus on the financial sector, I led the implementation of software solutions of various kinds; from creating simple microservices for dispute and clarification management, to developing sophisticated algorithms and implementing complex batch processes; I always actively participated in all aspects of development. My progression within the company led me to take on the role of technical leader, where, in addition to continuing to develop innovative solutions, I dedicated myself to planning (work plan generation), execution (progress review, testing), and successful delivery of all projects.",
-    "frontend": "Frontend Developer",
-    "backend": "Backend Developer",
-    "ux": "UX/UI Design",
-    "qa": "QA",
-    "mySkills": "My skills",
-    "techs": "Technologies.",
-    "soFar": "What I've done so far...",
-    "workExperience": "Work Experience.",
-    "myResume": "My resume",
-    "touch": "Get in touch",
-    "contactTitle": "Contact.",
-    "contactInfo": "Reach me",
-    "yourName": "Your Name",
-    "yourEmail": "Your Email",
-    "yourMsg": "Your Message",
-    "send": "Send",
-    "sendingMsg": "Thank you. I will get back to you as soon as possible.",
-    "errorMsg":"Something went wrong. Please try again.",
-    "mail": "Email",
+  "nav": {
+    "about": "Profile",
+    "skills": "Skills",
+    "experience": "Experience",
+    "projects": "Projects",
+    "contact": "Contact",
+    "menu": "Open menu",
+    "close": "Close menu",
+    "language": "Change language",
+    "theme": "Change color theme"
+  },
+  "hero": {
+    "eyebrow": "Tech Lead · Fullstack Software Developer",
+    "title": "I build full-stack products, from frontend experiences to scalable backend systems.",
+    "summary": "As a full-stack developer and Tech Lead, I connect clear interfaces with robust APIs, data, and architecture. I bring over six years of end-to-end delivery, with deep experience in high-performance financial systems.",
+    "contactCta": "Let's talk",
+    "projectsCta": "View projects",
+    "availability": "Open to new technical challenges",
+    "metrics": {
+      "experience": "years of experience",
+      "throughput": "transactions per second",
+      "volume": "transactions processed daily"
+    }
+  },
+  "about": {
+    "eyebrow": "Professional profile",
+    "title": "Software engineering with business awareness.",
+    "summary": "I specialize in end-to-end solutions for environments where performance, traceability, and reliability are essential. My background combines hands-on development, architecture, and cross-functional team leadership.",
+    "detail": "I started in Quality Assurance and evolved into fullstack development and technical leadership. That path helps me approach every system through user experience, operational quality, and sustainable code.",
+    "strengths": {
+      "architecture": { "title": "Scalable architecture", "text": "Microservices and event-driven flows prepared for high volumes." },
+      "leadership": { "title": "Technical leadership", "text": "Project direction, rigorous documentation, and cross-team coordination." },
+      "delivery": { "title": "End-to-end delivery", "text": "From discovery and design to production environments and monitoring." },
+      "quality": { "title": "Quality by design", "text": "A QA mindset applied to security, testing, and maintainability." }
+    }
+  },
+  "skills": {
+    "eyebrow": "Technology stack",
+    "title": "Tools selected for the problem at hand.",
+    "summary": "Hands-on experience across backend, streaming, cloud, frontend, and software quality.",
+    "groups": {
+      "languages": "Languages",
+      "backend": "Backend and APIs",
+      "data": "Data and messaging",
+      "frontend": "Frontend",
+      "cloud": "Cloud and platform",
+      "quality": "Quality and observability"
+    }
+  },
+  "experience": {
+    "eyebrow": "Career path",
+    "title": "From QA to technical leadership.",
+    "current": "Current",
+    "download": "Download resume",
+    "downloadNote": "English PDF, updated in 2026.",
+    "eglobal": {
+      "role": "Tech Lead",
+      "date": "2024 — Present",
+      "points": [
+        "Leading banking solutions under demanding compliance, documentation, and operational-control standards.",
+        "Designing Kafka integrations and Spring Boot/jPOS components for near-real-time transaction intake and storage.",
+        "Managing development, QA, and pre-production environments with multidisciplinary teams."
+      ]
+    },
+    "exosLead": {
+      "role": "Tech Lead",
+      "date": "2024",
+      "points": [
+        "Technical planning, progress reviews, testing, and delivery for financial-sector projects.",
+        "Administration of components, access, databases, and operational documentation."
+      ]
+    },
+    "exosDev": {
+      "role": "Junior Fullstack Developer",
+      "date": "2021 — 2023",
+      "points": [
+        "Built applications with Java, Spring Boot, Node.js, GraphQL, JSF, Vue, and JavaScript.",
+        "Implemented APIs, batch processes, microservices, and Kafka streaming for high-volume financial data."
+      ]
+    },
+    "exosQa": {
+      "role": "Junior QA Tester",
+      "date": "2020 — 2021",
+      "points": [
+        "Introduced SmartBear test automation to expand coverage and accelerate regression testing.",
+        "Authored test cases, test matrices, evidence, and user documentation."
+      ]
+    },
+    "freelance": {
+      "role": "Junior Fullstack Developer",
+      "date": "2020 — Present",
+      "points": [
+        "Designed and built the Colegio Brimmer website with Vue, Vite, and JavaScript.",
+        "Gathered requirements and created responsive interfaces with teachers and administrators."
+      ]
+    }
+  },
+  "projects": {
+    "eyebrow": "Case studies",
+    "title": "Measurable outcomes in critical systems.",
+    "summary": "Selected challenges where architecture, performance, and collaboration became tangible impact.",
+    "view": "View case",
+    "close": "Close case",
+    "impact": "Impact",
+    "stack": "Technologies",
+    "pending": "Content in progress",
+    "pendingSummary": "Verified details for this case will be published soon.",
+    "sales": {
+      "title": "BBVA–AMEX sales capture",
+      "summary": "A centralized service for processing high sales volumes and integrating with multiple financial modules.",
+      "detail": "The challenge was to process 16,000 records in three minutes without compromising flexibility or traceability. I built the service core with Spring Boot and GraphQL, plus an Apollo Federation API Gateway to centralize access from related processes. After evaluating multiple approaches, the solution achieved the target performance."
+    },
+    "kafka": {
+      "title": "Kafka transaction platform",
+      "summary": "An event-driven architecture to receive, transform, and distribute bank transactions in near real time.",
+      "detail": "The solution evolved batch processing of up to 20 million daily transactions into a continuous flow. I integrated CDC and Oracle GoldenGate with Informix and Oracle, and implemented a jPOS producer for ISO 8583 messages with Spring Boot consumers routing operations by institution, reaching up to 1,000 transactions per second."
+    },
+    "etl": {
+      "title": "ETL modernization with Spring Batch",
+      "summary": "Migration of Informix-based ETL processes to a modern, maintainable Spring Batch model.",
+      "detail": "I worked on migrating ETLs running on Informix to a processing architecture built with Spring Batch. This evolution modernized the existing processes, introduced a clearer execution structure, and established a more maintainable technology foundation for future development."
+    },
+    "qa": {
+      "title": "QA test automation",
+      "summary": "Frontend and backend test automation with SmartBear, Selenium, and JUnit.",
+      "detail": "I developed an automation strategy centered primarily on SmartBear and complemented by Selenium and JUnit. The solution automated frontend test flows and validated backend components, reducing repetitive manual work and strengthening regression coverage."
+    }
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Let's build something reliable.",
+    "summary": "Working through an architecture, integration, or data-processing challenge? Share the context and let's talk.",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "you@company.com",
+    "messagePlaceholder": "Tell me about the challenge...",
+    "send": "Send message",
+    "sending": "Sending...",
+    "success": "Thank you. Your message was sent successfully.",
+    "error": "The message could not be sent. You can also reach me directly by email.",
+    "configurationError": "The form is not configured yet. You can reach me by email or LinkedIn.",
+    "direct": "Direct contact",
+    "emailLabel": "Email",
     "phone": "Phone",
-    "caseStudies": "Case studies",
-    "proyects": "Proyects.",
-    "achievements":"Explore a selection of projects where I have acquired and put into practice new skills, enriching my experience to achieve the set goals. These projects not only reflect the work done but also the tangible impact I have achieved. Explore how my solutions have generated measurable results and have contributed to the success of both my clients and the involved teams.",
-    "saleCapture": "Sales capture BBVA-AMEX",
-    "saleCaptureDescription": "Undoubtedly, one of the most challenging projects I have had the opportunity to develop. Not only because of its technical and logical complexity but also due to the need to process large volumes of data. This module is part of a larger project called eBind, being the first to implement GraphQL, Apollo Federation, and Spring Boot. The decision to use GraphQL was driven by the need for a centralized service that would allow different modules and processes to access the services implemented for this project. Since sales are interconnected with other processes, the flexibility offered by the Netflix library was essential. With this independent GraphQL service core, an API Gateway with Apollo Federation was created to facilitate requests to the Sales service. Throughout the development process, different approaches had to be worked on, as the goal was to process 16k records in 3 minutes, which was ultimately achieved.",
-    "kafkaMigracion": "Kafka migration",
-    "kafkaMigracionDescription": "Throughout my career, I have worked on complex data processing projects, designing Batch solutions to handle large transaction volumes. However, when facing increased data growth and real-time processing requirements, I implemented a Kafka-based architecture that enabled immediate processing of up to 1,000 transactions per second. Previously, our Batch approach processed around 20 million daily transactions but only overnight, limiting the client’s capacity. With Kafka, CDC, and Oracle GoldenGate, I configured an environment that enabled continuous real-time database connections, including Informix and Oracle, transforming our processes to real-time. In an additional project, I designed and implemented a solution using JPOS as a producer to receive ISO8583 transactions, transform them, and send them as byte arrays to a Kafka cluster. This architecture allowed the cluster to receive transactions from multiple banks, facilitating transaction propagation through a central consumer that routed transactions to specific microservices for each bank. I used Spring Boot to configure brokers and topics, ensuring scalability and efficiency in a clustered environment.",
-    "etl": "Kafka migration",
-    "etlDesc": "Throughout my career, I have worked on complex data processing projects, designing Batch solutions to handle large transaction volumes. However, when facing increased data growth and real-time processing requirements, I implemented a Kafka-based architecture that enabled immediate processing of up to 1,000 transactions per second. Previously, our Batch approach processed around 20 million daily transactions but only overnight, limiting the client’s capacity. With Kafka, CDC, and Oracle GoldenGate, I configured an environment that enabled continuous real-time database connections, including Informix and Oracle, transforming our processes to real-time. In an additional project, I designed and implemented a solution using JPOS as a producer to receive ISO8583 transactions, transform them, and send them as byte arrays to a Kafka cluster. This architecture allowed the cluster to receive transactions from multiple banks, facilitating transaction propagation through a central consumer that routed transactions to specific microservices for each bank. I used Spring Boot to configure brokers and topics, ensuring scalability and efficiency in a clustered environment.",
-
-    "downloadResume": "Download my resume"
+    "locationLabel": "Location",
+    "location": "Cuernavaca, Morelos, Mexico",
+    "follow": "Professional profiles"
+  },
+  "footer": "Designed and developed by Diego Calderón.",
+  "skip": "Skip to content"
 }

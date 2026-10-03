@@ -1,15 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/portfolio-react/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Diego | Portfolio</title>
-    <script type="module" crossorigin src="/portfolio-react/assets/index-6cf526db.js"></script>
-    <link rel="stylesheet" href="/portfolio-react/assets/index-10a3a58d.css">
+    <meta name="theme-color" content="#071018" />
+    <script>
+      (() => {
+        const savedTheme = localStorage.getItem('portfolio-theme');
+        const preferredTheme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        document.documentElement.dataset.theme = savedTheme || preferredTheme;
+      })();
+    </script>
+    <meta name="description" content="Portafolio de Diego Calderón, Tech Lead y Fullstack Software Developer especializado en Java, Kafka y sistemas financieros escalables." />
+    <meta name="author" content="Diego Calderón Flores" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Diego Calderón | Tech Lead & Fullstack Developer" />
+    <meta property="og:description" content="Sistemas financieros escalables, arquitecturas event-driven y liderazgo técnico." />
+    <meta property="og:url" content="https://diegocalflo.github.io/portfolio-react/" />
+    <meta property="og:image" content="https://diegocalflo.github.io/portfolio-react/logo.png" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="canonical" href="https://diegocalflo.github.io/portfolio-react/" />
+    <link rel="icon" type="image/png" href="/portfolio-react/logo.png" />
+    <title>Diego Calderón | Tech Lead & Fullstack Developer</title>
+    <script type="module" crossorigin src="/portfolio-react/assets/index-BFUsg7k5.js"></script>
+    <link rel="stylesheet" crossorigin href="/portfolio-react/assets/index-D9y4CU7-.css">
   </head>
-  <body class="bg-night">
+  <body>
     <div id="root"></div>
-    
   </body>
 </html>
