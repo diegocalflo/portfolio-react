@@ -33,9 +33,9 @@ const Hero = () => {
           transition={{ duration: 0.65, delay: 0.15 }}
         >
           {metrics.map((metric) => (
-            <div className="metric-card" key={metric.labelKey}>
+            <div className={`metric-card ${metric.valueKey ? 'metric-card-text' : ''}`} key={metric.labelKey}>
               <dt>{t(metric.labelKey)}</dt>
-              <dd>{metric.value}</dd>
+              <dd>{metric.valueKey ? t(metric.valueKey) : metric.value}</dd>
             </div>
           ))}
         </motion.dl>

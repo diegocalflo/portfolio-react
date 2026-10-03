@@ -33,8 +33,8 @@ export const navLinks = [
 
 export const metrics = [
   { value: '6+', labelKey: 'hero.metrics.experience' },
-  { value: '1,000', labelKey: 'hero.metrics.throughput' },
-  { value: '20M', labelKey: 'hero.metrics.volume' },
+  { valueKey: 'hero.metrics.fullStackValue', labelKey: 'hero.metrics.fullStack' },
+  { valueKey: 'hero.metrics.endToEndValue', labelKey: 'hero.metrics.endToEnd' },
 ];
 
 export const strengths = [

@@ -18,9 +18,11 @@
     "projectsCta": "View projects",
     "availability": "Open to new technical challenges",
     "metrics": {
-      "experience": "years of experience",
-      "throughput": "transactions per second",
-      "volume": "transactions processed daily"
+      "experience": "years of professional experience",
+      "fullStackValue": "Full stack",
+      "fullStack": "frontend + backend",
+      "endToEndValue": "End-to-end",
+      "endToEnd": "from idea to production"
     }
   },
   "about": {

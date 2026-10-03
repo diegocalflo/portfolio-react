@@ -52,10 +52,19 @@ const Navbar = () => {
               <span aria-hidden="true">/</span>
               <span className={language === 'en' ? 'is-active' : ''}>EN</span>
             </button>
-            <button className="theme-button" type="button" onClick={changeTheme} aria-label={t('nav.theme')}>
-              <span className={theme === 'dark' ? 'is-active' : ''}>DARK</span>
-              <span aria-hidden="true">/</span>
-              <span className={theme === 'light' ? 'is-active' : ''}>LIGHT</span>
+            <button className="theme-button" type="button" onClick={changeTheme} aria-label={t('nav.theme')} title={t('nav.theme')}>
+              <span className={`theme-icon-option ${theme === 'dark' ? 'is-active' : ''}`} aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M20.2 15.2A8.5 8.5 0 0 1 8.8 3.8 8.5 8.5 0 1 0 20.2 15.2Z" />
+                </svg>
+              </span>
+              <span className="theme-divider" aria-hidden="true" />
+              <span className={`theme-icon-option ${theme === 'light' ? 'is-active' : ''}`} aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="3.5" />
+                  <path d="M12 2v2.2M12 19.8V22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M2 12h2.2M19.8 12H22M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6" />
+                </svg>
+              </span>
             </button>
           </div>
         </div>
