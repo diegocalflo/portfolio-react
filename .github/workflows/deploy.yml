@@ -18,6 +18,10 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      VITE_EMAILJS_SERVICE_ID: ${{ vars.EMAILJS_SERVICE_ID || secrets.EMAILJS_SERVICE_ID }}
+      VITE_EMAILJS_TEMPLATE_ID: ${{ vars.EMAILJS_TEMPLATE_ID || secrets.EMAILJS_TEMPLATE_ID }}
+      VITE_EMAILJS_PUBLIC_KEY: ${{ vars.EMAILJS_PUBLIC_KEY || secrets.EMAILJS_PUBLIC_KEY }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -37,11 +41,14 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      - name: Validate EmailJS configuration
+        shell: bash
+        run: |
+          test -n "$VITE_EMAILJS_SERVICE_ID" || { echo "::error::EMAILJS_SERVICE_ID is missing"; exit 1; }
+          test -n "$VITE_EMAILJS_TEMPLATE_ID" || { echo "::error::EMAILJS_TEMPLATE_ID is missing"; exit 1; }
+          test -n "$VITE_EMAILJS_PUBLIC_KEY" || { echo "::error::EMAILJS_PUBLIC_KEY is missing"; exit 1; }
+
       - name: Build
-        env:
-          VITE_EMAILJS_SERVICE_ID: ${{ vars.EMAILJS_SERVICE_ID }}
-          VITE_EMAILJS_TEMPLATE_ID: ${{ vars.EMAILJS_TEMPLATE_ID }}
-          VITE_EMAILJS_PUBLIC_KEY: ${{ vars.EMAILJS_PUBLIC_KEY }}
         run: npm run build
 
       - name: Configure Pages
