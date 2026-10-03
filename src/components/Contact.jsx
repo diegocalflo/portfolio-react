@@ -19,9 +19,9 @@ const Contact = () => {
     event.preventDefault();
     if (form.company) return;
 
-    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID?.trim();
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID?.trim();
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY?.trim();
 
     if (!serviceId || !templateId || !publicKey) {
       setStatus('configurationError');
@@ -38,6 +38,7 @@ const Contact = () => {
           from_email: form.email.trim(),
           message: form.message.trim(),
           to_name: 'Diego',
+          to_email: 'dcalflo8@gmail.com',
         },
         { publicKey },
       );
