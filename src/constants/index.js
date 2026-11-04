@@ -50,16 +50,8 @@ export const strengths = [
 
 export const skillGroups = [
   {
-    titleKey: 'skills.groups.languages',
-    items: [
-      { name: 'Java', icon: java },
-      { name: 'JavaScript', icon: javascript },
-      { name: 'Python', short: 'Py' },
-      { name: 'Kotlin', short: 'Kt' },
-    ],
-  },
-  {
     titleKey: 'skills.groups.backend',
+    featured: true,
     items: [
       { name: 'Spring Boot', icon: springboot },
       { name: 'Node.js', icon: nodejs },
@@ -70,6 +62,7 @@ export const skillGroups = [
   },
   {
     titleKey: 'skills.groups.data',
+    featured: true,
     items: [
       { name: 'Kafka', icon: kafka },
       { name: 'Flink', short: 'Fl' },
@@ -77,6 +70,15 @@ export const skillGroups = [
       { name: 'Oracle', icon: oracle },
       { name: 'MongoDB', icon: mongo },
       { name: 'SQL', short: 'SQL' },
+    ],
+  },
+  {
+    titleKey: 'skills.groups.languages',
+    items: [
+      { name: 'Java', icon: java },
+      { name: 'JavaScript', icon: javascript },
+      { name: 'Python', short: 'Py' },
+      { name: 'Kotlin', short: 'Kt' },
     ],
   },
   {

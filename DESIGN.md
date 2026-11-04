@@ -28,7 +28,7 @@ All tokens are defined once in `src/index.css` — `:root` holds the dark theme 
 | `--success`, `--error` | States: availability dot, `status-badge`, `form-status` — not decoration |
 | `--floating-bg` | Translucent chrome: the FAB, its panel, floating chips and dropdowns — all rely on `backdrop-filter` blur |
 | `--modal-bg` | Modal surface, always opaque in both themes |
-| `--card-gradient`, `--card-hover`, `--card-fill` | Strength-card gradient fill, its hover, and the flat fill of skill groups |
+| `--card-gradient`, `--card-hover` | Card gradient fill and its hover state (strength, metric and skill cards) |
 | `--subtle-fill` | Barely-there fill for chips, inputs-adjacent surfaces and secondary buttons |
 | `--hero-background` | The hero's radial + linear gradient composition, per theme |
 | `--grid-line` | The technical grid motif (hero 64px, project visuals 32px) |
@@ -105,16 +105,16 @@ These are the details that make the page recognizable — protect them:
 | `eyebrow` | Section kicker: dash + uppercase label in `--accent`. Every `section-heading` starts with one |
 | `section-heading` / `split-heading` | Section title + summary; `split-heading` puts the summary in a second column (About) — the intentional asymmetry |
 | `button` + `button-primary` / `button-secondary` | Primary = filled `--accent` (one per view); secondary = hairline ghost. Both lift `translateY(-2px)` on hover |
-| `metric-grid` / `metric-card` | `dl` of impact figures; `metric-card-text` for word-values ("Full stack") that must `overflow-wrap` |
-| `strength-grid` / `strength-card` / `card-number` | Bordered quad of strengths; number first, title hangs ~70px low, hover lifts −4px |
-| `skill-grid` / `skill-group` / `skill-icon` / `skill-name` | 3-col grid of grouped chips (4–6 items each); icons sit on the always-dark `--icon-bg` tile |
+| `metric-grid` / `metric-card` | `dl` of impact figures as separated hairline cards (16px radius); label + oversized accent value anchored at the bottom; `metric-card-text` for word-values ("Full stack") that must `overflow-wrap` |
+| `strength-grid` / `strength-card` / `card-number` | Separated hairline cards (16px radius, 20px gaps); oversized faint `01–04` mono numeral anchors the top while title + text anchor the bottom, hover lifts −4px and the numeral brightens |
+| `skill-grid` / `skill-group` / `skill-group-featured` / `skill-group-head` / `skill-count` / `skill-icon` / `skill-name` | Bento grid (4 cols): `featured` groups span 2 (Backend, Data lead — order in `constants` is visual order); each card's header pairs the mono accent title with a `NN` item count over a hairline; items are vertical tiles (52px `--icon-bg` tile + centered name) that flow via `auto-fill`; card lifts −4px, each tile lifts −2px with an accent border on hover |
 | `tag-list` | Tech chips on project cards and modal stack; ≤5 items, never scrolls |
 | `timeline` family | Career path: meta column (dates + `status-badge`), marker on the hairline rail, content column. `status-badge` only for the current role |
 | `resume-action` / `resume-menu` / `resume-menu-list` | Resume download in Experience's heading row: primary button opens a language menu (`aria-haspopup="menu"`, Esc/outside-click closes) listing the ES/EN PDFs from `constants.resumes` |
 | `project-card` / `project-visual` / `impact-chip` / `project-body` / `card-actions` | Case card: thumbnail with grid overlay + impact chip top-right, then title, summary, tags and `card-actions`; the card lifts −4px on hover. `is-pending` dims the card and swaps the actions for `pending-label` |
 | `back-to-top` | Circular 48px floating button, bottom-right; appears after ~600px of scroll (`is-visible`, fade + translateY), hides the rest of the time. Orbit ring + accent on hover — same family as `fab-button`/`toggle-button` |
 | `section-rail` | Fixed left-edge dot rail (desktop only, hidden ≤960px): one dot per section, `is-active` via the same IntersectionObserver as the nav — a second Goal-Gradient cue |
-| `spotlight` | Cursor-tracked highlight on `strength-card`/`project-card`: a delegated `mousemove` writes `--spot-x/--spot-y` per card and a 240px accent radial follows the pointer on hover — pointer-events none, opacity-only entrance |
+| `spotlight` | Cursor-tracked highlight on `strength-card`/`project-card`/`metric-card`/`skill-group`: a delegated `mousemove` writes `--spot-x/--spot-y` per card and a 240px accent radial follows the pointer on hover — pointer-events none, opacity-only entrance |
 | `card-actions` | Row of card-level actions: "View case" opens the modal; a live project also gets an external "Visit site" `text-link` (`target="_blank"`, `rel="noreferrer"`). The same link appears inside the modal under `modal-stack` |
 | `text-link` | Inline action with the `↗` glyph that drifts `(3px,−3px)` on hover |
 | `modal-backdrop` / `project-modal` / `modal-close` / `project-impact` / `modal-detail` / `modal-stack` | Project deep-dive: eyebrow → giant impact numeral → title → detail → stack. Focus-trapped, Esc/backdrop close, focus returns to trigger |

@@ -17,14 +17,17 @@ const Tech = () => {
       <div className="skill-grid">
         {skillGroups.map((group, index) => (
           <motion.article
-            className="skill-group"
+            className={`skill-group spotlight ${group.featured ? 'skill-group-featured' : ''}`}
             key={group.titleKey}
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.25 }}
             transition={{ delay: index * 0.06 }}
           >
-            <h3>{t(group.titleKey)}</h3>
+            <div className="skill-group-head">
+              <h3>{t(group.titleKey)}</h3>
+              <span className="skill-count">{String(group.items.length).padStart(2, '0')}</span>
+            </div>
             <ul>
               {group.items.map((item) => (
                 <li key={item.name}>
