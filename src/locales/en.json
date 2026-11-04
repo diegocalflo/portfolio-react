@@ -55,7 +55,7 @@
     "title": "From QA to technical leadership.",
     "current": "Current",
     "download": "Download resume",
-    "downloadNote": "English PDF, updated in 2026.",
+    "downloadNote": "PDF · available in Spanish and English.",
     "eglobal": {
       "role": "Tech Lead",
       "date": "2024 — Present",
@@ -103,6 +103,7 @@
     "title": "Measurable outcomes in critical systems.",
     "summary": "Selected challenges where architecture, performance, and collaboration became tangible impact.",
     "view": "View case",
+    "visit": "Visit site",
     "close": "Close case",
     "impact": "Impact",
     "stack": "Technologies",
@@ -118,6 +119,11 @@
       "summary": "An event-driven architecture to receive, transform, and distribute bank transactions in near real time.",
       "detail": "The solution evolved batch processing of up to 20 million daily transactions into a continuous flow. I integrated CDC and Oracle GoldenGate with Informix and Oracle, and implemented a jPOS producer for ISO 8583 messages with Spring Boot consumers routing operations by institution, reaching up to 1,000 transactions per second."
     },
+    "brimmerWeb": {
+      "title": "Colegio Brimmer website",
+      "summary": "The school's public site — designed, built, and maintained solo, from requirements with staff to deployment.",
+      "detail": "I designed and built Colegio Brimmer's public website end to end as a freelance project: gathered requirements directly with teachers and administrative staff, structured the content for parents and applicants, and implemented a responsive frontend with Vue, Vite, and JavaScript. The site is live at colegiobrimmer.edu.mx and remains the school's main web presence."
+    },
     "etl": {
       "title": "ETL modernization with Spring Batch",
       "summary": "Migration of Informix-based ETL processes to a modern, maintainable Spring Batch model.",
@@ -127,6 +133,11 @@
       "title": "QA test automation",
       "summary": "Frontend and backend test automation with SmartBear, Selenium, and JUnit.",
       "detail": "I developed an automation strategy centered primarily on SmartBear and complemented by Selenium and JUnit. The solution automated frontend test flows and validated backend components, reducing repetitive manual work and strengthening regression coverage."
+    },
+    "brimmerPos": {
+      "title": "Brimmer Café — school POS",
+      "summary": "A full point-of-sale for the school cafeteria: sales at the register, cash sessions, credit accounts, and admin dashboards.",
+      "detail": "Designed and built the cafeteria's POS end to end, live at cafeteria.colegiobrimmer.edu.mx: catalog and checkout with scanner support and keyboard shortcuts, cash opening and closing with reconciliation, credit accounts and payments, inventory with kardex, and an admin dashboard with charts. The interface runs in light and dark themes over a documented design system — 48px targets, AA contrast in both themes — built for fast, accessible use by non-technical staff."
     }
   },
   "contact": {
@@ -141,6 +152,10 @@
     "messagePlaceholder": "Tell me about the challenge...",
     "send": "Send message",
     "sending": "Sending...",
+    "errors": {
+      "required": "This field is required.",
+      "email": "Enter a valid email address."
+    },
     "success": "Thank you. Your message was sent successfully.",
     "error": "The message could not be sent. You can also reach me directly by email.",
     "configurationError": "The form is not configured yet. You can reach me by email or LinkedIn.",
@@ -152,5 +167,6 @@
     "follow": "Professional profiles"
   },
   "footer": "Designed and developed by Diego Calderón.",
+  "backToTop": "Back to top",
   "skip": "Skip to content"
 }

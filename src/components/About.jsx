@@ -22,7 +22,7 @@ const About = () => {
       <div className="strength-grid">
         {strengths.map((strength, index) => (
           <motion.article
-            className="strength-card"
+            className="strength-card spotlight"
             key={strength.number}
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}

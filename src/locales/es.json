@@ -54,8 +54,8 @@
     "eyebrow": "Trayectoria",
     "title": "De QA a liderazgo técnico.",
     "current": "Actual",
-    "download": "Descargar CV en inglés",
-    "downloadNote": "La versión española actualizada estará disponible próximamente.",
+    "download": "Descargar CV",
+    "downloadNote": "PDF · disponible en español e inglés.",
     "eglobal": {
       "role": "Tech Lead",
       "date": "2024 — Presente",
@@ -103,6 +103,7 @@
     "title": "Resultados medibles en sistemas críticos.",
     "summary": "Una selección de retos donde arquitectura, rendimiento y colaboración se convirtieron en impacto tangible.",
     "view": "Ver caso",
+    "visit": "Ver sitio",
     "close": "Cerrar caso",
     "impact": "Impacto",
     "stack": "Tecnologías",
@@ -118,6 +119,11 @@
       "summary": "Arquitectura event-driven para recibir, transformar y distribuir transacciones bancarias casi en tiempo real.",
       "detail": "La solución evolucionó procesos batch de hasta 20 millones de transacciones diarias hacia procesamiento continuo. Integré CDC y Oracle GoldenGate con Informix y Oracle; además, implementé un productor jPOS para mensajes ISO 8583 y consumidores Spring Boot capaces de enrutar operaciones por institución, alcanzando hasta 1,000 transacciones por segundo."
     },
+    "brimmerWeb": {
+      "title": "Sitio web Colegio Brimmer",
+      "summary": "El sitio público del colegio — diseñado, construido y mantenido en solitario, del levantamiento de requisitos al despliegue.",
+      "detail": "Diseñé y construí el sitio web público del Colegio Brimmer de punta a punta como proyecto freelance: levanté los requerimientos directamente con docentes y personal administrativo, estructuré el contenido para padres de familia y aspirantes, e implementé un frontend responsivo con Vue, Vite y JavaScript. El sitio está en producción en colegiobrimmer.edu.mx y sigue siendo la presencia web principal del colegio."
+    },
     "etl": {
       "title": "Modernización de ETLs con Spring Batch",
       "summary": "Migración de procesos ETL basados en Informix hacia un esquema moderno y mantenible con Spring Batch.",
@@ -127,6 +133,11 @@
       "title": "Automatización de pruebas QA",
       "summary": "Automatización de pruebas frontend y backend con SmartBear, Selenium y JUnit.",
       "detail": "Desarrollé una estrategia de automatización centrada principalmente en SmartBear, complementada con Selenium y JUnit. La solución permitió automatizar flujos de prueba frontend y validar componentes backend, reduciendo tareas manuales repetitivas y fortaleciendo la cobertura de regresión."
+    },
+    "brimmerPos": {
+      "title": "Brimmer Café — punto de venta escolar",
+      "summary": "Punto de venta completo para la cafetería del colegio: ventas en caja, cortes, cuentas a crédito y tablero administrativo.",
+      "detail": "Diseñé y construí el punto de venta de la cafetería de punta a punta, en producción en cafeteria.colegiobrimmer.edu.mx: catálogo y cobro con escáner y atajos de teclado, apertura y corte de caja con arqueo, cuentas a crédito y abonos, inventario con kardex y un tablero administrativo con gráficas. La interfaz corre en tema claro y oscuro sobre un sistema de diseño documentado — objetivos de 48 px y contraste AA en ambos temas — pensado para uso rápido y accesible por personal no técnico."
     }
   },
   "contact": {
@@ -141,6 +152,10 @@
     "messagePlaceholder": "Háblame del reto...",
     "send": "Enviar mensaje",
     "sending": "Enviando...",
+    "errors": {
+      "required": "Este campo es obligatorio.",
+      "email": "Escribe un correo válido."
+    },
     "success": "Gracias. Tu mensaje fue enviado correctamente.",
     "error": "No fue posible enviar el mensaje. También puedes escribirme directamente por correo.",
     "configurationError": "El formulario aún no está configurado. Puedes contactarme por correo o LinkedIn.",
@@ -152,5 +167,6 @@
     "follow": "Perfiles profesionales"
   },
   "footer": "Diseñado y desarrollado por Diego Calderón.",
+  "backToTop": "Volver arriba",
   "skip": "Saltar al contenido"
 }

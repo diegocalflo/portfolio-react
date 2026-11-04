@@ -2,6 +2,10 @@ import {
   automated,
   aws,
   bitbucket,
+  brimmerpos,
+  brimmerweb,
+  cvEn,
+  cvEs,
   css,
   etl,
   git,
@@ -163,6 +167,17 @@ export const projects = [
     ready: true,
   },
   {
+    id: 'brimmer-web',
+    titleKey: 'projects.brimmerWeb.title',
+    summaryKey: 'projects.brimmerWeb.summary',
+    detailKey: 'projects.brimmerWeb.detail',
+    impact: 'Solo build',
+    image: brimmerweb,
+    technologies: ['Vue', 'Vite', 'JavaScript'],
+    url: 'https://colegiobrimmer.edu.mx',
+    ready: true,
+  },
+  {
     id: 'etl-migration',
     titleKey: 'projects.etl.title',
     summaryKey: 'projects.etl.summary',
@@ -182,6 +197,22 @@ export const projects = [
     technologies: ['SmartBear', 'Selenium', 'JUnit'],
     ready: true,
   },
+  {
+    id: 'brimmer-pos',
+    titleKey: 'projects.brimmerPos.title',
+    summaryKey: 'projects.brimmerPos.summary',
+    detailKey: 'projects.brimmerPos.detail',
+    impact: 'In production',
+    image: brimmerpos,
+    technologies: ['Vue', 'Vuetify', 'TypeScript', 'Chart.js'],
+    url: 'https://cafeteria.colegiobrimmer.edu.mx',
+    ready: true,
+  },
+];
+
+export const resumes = [
+  { label: 'Español', file: cvEs, filename: 'CV_ESP_DIEGO.pdf' },
+  { label: 'English', file: cvEn, filename: 'CV_ING_DIEGO.pdf' },
 ];
 
 export const socialLinks = {

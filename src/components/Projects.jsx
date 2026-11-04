@@ -60,6 +60,11 @@ const ProjectModal = ({ project, onClose }) => {
           <span>{t('projects.stack')}</span>
           <ul>{project.technologies.map((technology) => <li key={technology}>{technology}</li>)}</ul>
         </div>
+        {project.url && (
+          <a className="text-link" href={project.url} target="_blank" rel="noreferrer">
+            {t('projects.visit')} <span aria-hidden="true">↗</span>
+          </a>
+        )}
       </motion.div>
     </div>
   );
@@ -82,7 +87,7 @@ const Projects = () => {
       <div className="project-grid">
         {projects.map((project, index) => (
           <motion.article
-            className={`project-card ${project.ready ? '' : 'is-pending'}`}
+            className={`project-card spotlight ${project.ready ? '' : 'is-pending'}`}
             key={project.id}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -100,9 +105,16 @@ const Projects = () => {
                 {project.technologies.map((technology) => <li key={technology}>{technology}</li>)}
               </ul>
               {project.ready ? (
-                <button className="text-link" type="button" onClick={() => setActiveProject(project)}>
-                  {t('projects.view')} <span aria-hidden="true">↗</span>
-                </button>
+                <div className="card-actions">
+                  <button className="text-link" type="button" onClick={() => setActiveProject(project)}>
+                    {t('projects.view')} <span aria-hidden="true">↗</span>
+                  </button>
+                  {project.url && (
+                    <a className="text-link" href={project.url} target="_blank" rel="noreferrer">
+                      {t('projects.visit')} <span aria-hidden="true">↗</span>
+                    </a>
+                  )}
+                </div>
               ) : (
                 <span className="pending-label">{t('projects.pending')}</span>
               )}

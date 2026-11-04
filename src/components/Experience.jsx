@@ -1,12 +1,31 @@
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { experiences } from '../constants';
+import { experiences, resumes } from '../constants';
 import { SectionWrapper } from '../hoc';
-import resumePdf from '../assets/curriculum/Diego-Calderon-Resume-EN.pdf';
 
 const Experience = () => {
-  const { t, i18n } = useTranslation();
-  const isSpanish = i18n.resolvedLanguage?.startsWith('es');
+  const { t } = useTranslation();
+  const [resumeMenuOpen, setResumeMenuOpen] = useState(false);
+  const resumeMenuRef = useRef(null);
+
+  useEffect(() => {
+    if (!resumeMenuOpen) return undefined;
+
+    const handlePointer = (event) => {
+      if (!resumeMenuRef.current?.contains(event.target)) setResumeMenuOpen(false);
+    };
+    const handleKeyboard = (event) => {
+      if (event.key === 'Escape') setResumeMenuOpen(false);
+    };
+
+    document.addEventListener('mousedown', handlePointer);
+    document.addEventListener('keydown', handleKeyboard);
+    return () => {
+      document.removeEventListener('mousedown', handlePointer);
+      document.removeEventListener('keydown', handleKeyboard);
+    };
+  }, [resumeMenuOpen]);
 
   return (
     <>
@@ -16,11 +35,33 @@ const Experience = () => {
           <h2>{t('experience.title')}</h2>
         </div>
         <div className="resume-action">
-          <a className="button button-primary" href={resumePdf} download="Diego-Calderon-Resume-EN.pdf">
-            {t('experience.download')}
-          </a>
+          <div className="resume-menu" ref={resumeMenuRef}>
+            <button
+              className="button button-primary"
+              type="button"
+              aria-expanded={resumeMenuOpen}
+              aria-haspopup="menu"
+              onClick={() => setResumeMenuOpen((open) => !open)}
+            >
+              {t('experience.download')} <span aria-hidden="true">{resumeMenuOpen ? '▴' : '▾'}</span>
+            </button>
+            {resumeMenuOpen && (
+              <div className="resume-menu-list" role="menu">
+                {resumes.map((resume) => (
+                  <a
+                    key={resume.filename}
+                    role="menuitem"
+                    href={resume.file}
+                    download={resume.filename}
+                    onClick={() => setResumeMenuOpen(false)}
+                  >
+                    {resume.label} <span aria-hidden="true">↓</span>
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
           <small>{t('experience.downloadNote')}</small>
-          {isSpanish && <span className="language-note">EN</span>}
         </div>
       </div>
 

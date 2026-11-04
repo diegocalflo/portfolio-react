@@ -1,7 +1,11 @@
-import automated from './projects/automated.png';
-import etl from './projects/etl.png';
+import cvEn from './curriculum/CV_ING_DIEGO.pdf';
+import cvEs from './curriculum/CV_ESP_DIEGO.pdf';
+import automated from './projects/automated.svg';
+import brimmerpos from './projects/brimmer-pos.svg';
+import brimmerweb from './projects/brimmer-web.svg';
+import etl from './projects/etl.svg';
 import kafkaproject from './projects/kafka.svg';
-import salescapture from './projects/sales-capture.png';
+import salescapture from './projects/sales-capture.svg';
 import aws from './tech/aws.png';
 import bitbucket from './tech/bitbucket.png';
 import css from './tech/css.png';
@@ -25,6 +29,10 @@ export {
   automated,
   aws,
   bitbucket,
+  brimmerpos,
+  brimmerweb,
+  cvEn,
+  cvEs,
   css,
   etl,
   git,

@@ -10,14 +10,34 @@ const Contact = () => {
   const { t } = useTranslation();
   const [form, setForm] = useState(initialForm);
   const [status, setStatus] = useState('idle');
+  const [errors, setErrors] = useState({});
+
+  const validate = () => {
+    const next = {};
+    if (!form.name.trim()) next.name = 'required';
+    if (!form.email.trim()) next.email = 'required';
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) next.email = 'email';
+    if (!form.message.trim()) next.message = 'required';
+    return next;
+  };
 
   const handleChange = ({ target }) => {
     setForm((current) => ({ ...current, [target.name]: target.value }));
+    setErrors((current) => {
+      if (!current[target.name]) return current;
+      const next = { ...current };
+      delete next[target.name];
+      return next;
+    });
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (form.company) return;
+
+    const next = validate();
+    setErrors(next);
+    if (Object.keys(next).length > 0) return;
 
     const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID?.trim();
     const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID?.trim();
@@ -69,20 +89,23 @@ const Contact = () => {
           </div>
         </div>
 
-        <form className="contact-form" onSubmit={handleSubmit}>
+        <form className="contact-form" onSubmit={handleSubmit} noValidate>
           <div className="form-row">
             <label>
               <span>{t('contact.name')}</span>
-              <input name="name" value={form.name} onChange={handleChange} placeholder={t('contact.namePlaceholder')} maxLength="80" autoComplete="name" required />
+              <input name="name" value={form.name} onChange={handleChange} placeholder={t('contact.namePlaceholder')} maxLength="80" autoComplete="name" required aria-invalid={Boolean(errors.name)} className={errors.name ? 'is-invalid' : undefined} />
+              {errors.name && <span className="field-error" role="alert">{t(`contact.errors.${errors.name}`)}</span>}
             </label>
             <label>
               <span>{t('contact.email')}</span>
-              <input type="email" name="email" value={form.email} onChange={handleChange} placeholder={t('contact.emailPlaceholder')} maxLength="120" autoComplete="email" required />
+              <input type="email" name="email" value={form.email} onChange={handleChange} placeholder={t('contact.emailPlaceholder')} maxLength="120" autoComplete="email" required aria-invalid={Boolean(errors.email)} className={errors.email ? 'is-invalid' : undefined} />
+              {errors.email && <span className="field-error" role="alert">{t(`contact.errors.${errors.email}`)}</span>}
             </label>
           </div>
           <label>
             <span>{t('contact.message')}</span>
-            <textarea name="message" value={form.message} onChange={handleChange} placeholder={t('contact.messagePlaceholder')} maxLength="2000" rows="6" required />
+            <textarea name="message" value={form.message} onChange={handleChange} placeholder={t('contact.messagePlaceholder')} maxLength="2000" rows="6" required aria-invalid={Boolean(errors.message)} className={errors.message ? 'is-invalid' : undefined} />
+            {errors.message && <span className="field-error" role="alert">{t(`contact.errors.${errors.message}`)}</span>}
           </label>
           <label className="honeypot" aria-hidden="true">
             Company
